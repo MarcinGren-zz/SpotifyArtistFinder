@@ -26,47 +26,9 @@ function obtainAccessToken(callback) { request.post(authOptions,  (error, res, b
 
 function saveAcessToken() {
   obtainAccessToken((err, res) => {
-    accessToken = res
+    accessToken = res // I don't think it's a great idea to have it here - might move this function to the main file
+    spotifyApi.setAccessToken(accessToken)
   })
 }
 
 module.exports = saveAcessToken
-
-
-// // const {client_id, client_secret} = process.env works fine on server but console in browser throws error?
-// const client_id = process.env.CLIENT_ID
-// const client_secret = process.env.CLIENT_SECRET
-
-// function authenticateSpotify(url) {
-
-//   console.log(client_id + 'asd')
-//   const authOptions = {
-//     url: 'https://accounts.spotify.com/api/token',
-//     headers: {
-//       'Authorization': 'Basic ' + (new Buffer(`${client_id}:${client_secret}`).toString('base64'))
-//     },
-//     form: {
-//       grant_type: 'client_credentials'
-//     },
-//     json: true
-//   }
-
-//   request.post(authOptions, function (error, response, body) {
-//     if (!error && response.statusCode === 200) {
-
-//       const token = body.access_token;
-//       const options = {
-//         url: url,
-//         headers: {
-//           'Authorization': 'Bearer ' + token
-//         },
-//         json: true
-//       }
-
-//       request.get(options, function (error, response, body) {
-//       })
-//     }
-//   })
-// }
-
-// module.exports = authenticateSpotify

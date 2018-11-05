@@ -10,7 +10,10 @@ const express          = require('express'),
       app              = express(),
       spotifyConnector = require('./spotify-connector'),
       request          = require('request')
-      saveAcessToken   = require('./spotify-connector')
+      saveAcessToken   = require('./spotify-connector'),
+      Spotify          = require('spotify-web-api-js'),
+      spotifyApi       = new Spotify(),
+      XMLHttpRequest   = require('xmlhttprequest').XMLHttpRequest
 
 app.use(cors())
 app.options('*', cors())
@@ -18,41 +21,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }))
 
-saveAcessToken()
-
+saveAcessToken() // Returns accessToken
 
 app.get('/api', (req, res) => {
-
-  // const token = ''
-  // const options = {
-  //   url: 'https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj',
-  //   headers: {
-  //     'Authorization': 'Bearer ' + token
-  //   }
-  // }
-  // request(options, (error, response, body) => {
-  //   if(error) {
-  //     res.send('error occured')
-  //   } else {
-  //     res.send(body)
-  //   }
-  // })
-
-  // moved from spotify-connector to figure out whats wrong, will refactor after implementing api wrapper
-  console.log('token321')
-  console.log(accessToken)
-  const options = {
-    url: 'https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj',
-    headers: {
-      'Authorization': 'Bearer ' + accessToken
-    },
-    json: true
-  }
-
-  request.get(options, function (error, response, body) {
-    res.send(body)
+  spotifyApi.getArtistRelatedArtists('4dwdTW1Lfiq0cM8nBAqIIz', (err, data) => {
+    if (err) { console.log(err) }
+    else { res.send(data) }
   })
-
 })
 
 app.get('*', (req, res) => {
