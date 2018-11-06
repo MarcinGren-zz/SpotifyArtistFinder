@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Arists from './components/artists'
-import store from './stores/artists_store'
+import SearchBox from './components//serach-box'
+import artistsStore from './stores/artists-store'
 
 ReactDOM.render(
     <div>
         index react
-    <Arists store={store} />
+    <SearchBox artistsStore={artistsStore} />
+    <Arists artistsStore={artistsStore} />
 </div>, document.querySelector('.container'))

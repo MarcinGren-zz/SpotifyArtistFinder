@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import authenticateSpotify from '../../server/spotify-connector'
-import ArtistsStore from '../stores/artists_store'
+import ArtistsStore from '../stores/artists-store'
 import { observer } from 'mobx-react'
+import { action } from 'mobx'
 
 const URL = 'https://api.spotify.com/v1/albums/0sNOF9WDwhWunNAHPD3Baj'
 
@@ -12,10 +13,12 @@ export default class Artists extends Component {
   componentDidMount() {
     axios.get('/api')
     .then((response) => {
-      //  let reqBody = response.request.body.toString
-      //  reqBody = JSON.parse(reqBody)
-      console.log(JSON.stringify(response.data))
-       this.props.store.artists.push(JSON.stringify(response))
+      // response.data.artists.forEach((el, i, arr) => {
+      //   console.log(el)
+      // })
+      response.data.artists.map(artist => {
+        this.props.artistsStore.artists.push(JSON.stringify(artist.name))
+      })
     })
     .catch((error)  => {
       console.log(error)
@@ -26,21 +29,22 @@ export default class Artists extends Component {
       axios.get('/api')
     }
 
+    @action
     addArtist() {
-      this.props.store.artists.push('task from artists')
+      this.props.artistsStore.artists.push('task from artists')
     }
 
     render() {
-      const store = this.props.store
+      const artistsStore = this.props.artistsStore
       
-      if (store.artists.length === 0) {
-        return <div onClick={() => this.props.store.artists.push('task from artists')}>No artists added</div>
+      if (artistsStore.artists.length === 0) {
+        return <div onClick={() => this.props.artistsStore.artists.push('task from artists')}>No artists added</div>
       }
 
         return (
-            <div onClick={() => this.props.store.artists.push('task from artists')}>
+            <div onClick={() => this.props.artistsStore.artists.push('task from artists')}>
               react comp
-              {store.artists[0]}
+              {artistsStore.artists}
             </div>
         )
     }
