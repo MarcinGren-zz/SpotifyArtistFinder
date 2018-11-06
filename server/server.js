@@ -30,6 +30,14 @@ app.get('/api', (req, res) => {
   })
 })
 
+app.get('/api/artist/:name', (req, res) => {
+  spotifyApi.searchArtists(req.params.name, (err, data) => {
+    console.log(data)
+    if (err) { console.log(err) }
+    else { res.send(data) }
+  })
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'))
 })

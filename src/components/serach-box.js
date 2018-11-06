@@ -19,6 +19,7 @@ export default class SearchBox extends Component {
               onChange={this.onInputChange}
               // onSubmit={event => this.props.artistsStore.updateSearchedArtist(event.target.value)}
               // onSubmit={event => this.props.artistsStore.searchedArtist = event.target.value} 
+              onSubmit={axios.get(`/api/artist/${this.props.artistsStore.searchedArtist}`)}
               />
               value: {this.props.artistsStore.searchedArtist}
           </label>
