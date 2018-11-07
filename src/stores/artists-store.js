@@ -1,8 +1,9 @@
-import { autorun, observable, action } from 'mobx'
+import { autorun, observable, action, computed } from 'mobx'
 
 class ArtistsStore {
   @observable artists = []
-  @observable searchedArtist = 'asd'
+  @observable searchedArtist = ''
+  @observable foundArtists = []
 
   addArtist(artist) {
     this.artists.push({
@@ -14,6 +15,12 @@ class ArtistsStore {
   updateSearchedArtist(searchedArtist) {
     this.searchedArtist = searchedArtist
   }
+
+  // Not yet used, to be further explored
+  @computed
+  foundArtistsKeyValue() {
+    return foundArtists.map((artist) => <li key={artist.name}></li>)
+  }
 }
 
 const artistsStore = new ArtistsStore()
@@ -21,5 +28,10 @@ const artistsStore = new ArtistsStore()
 export default artistsStore
 
 autorun(() => {
-  console.log('artist store is ' + artistsStore.searchedArtist)
+  console.log('artist store searchedArtist is ' + artistsStore.searchedArtist)
+  console.log('artist store foundArtists is ' + JSON.stringify(artistsStore.foundArtists))
+  
+  if (artistsStore.foundArtists.length > 5) { 
+    artistsStore.foundArtists.length = 5
+  }
 })
