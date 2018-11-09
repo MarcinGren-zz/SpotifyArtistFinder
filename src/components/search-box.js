@@ -25,9 +25,16 @@ export default class SearchBox extends Component {
                 console.log(response)
                 console.log('datares')
                 console.log(response.data)
+                console.log(JSON.stringify(response.data))
+                // Bug: Artist might be listed twice which results in more than 5 items listed
+                // Story: Type in 'Avicii' -> Hit backspace 3 times -> Avicii listed more than 
+                // once and more listing than 5
                 // Applied limit on query itself so might remove this later
                 response.data.artists.items.slice(0, 5).map(artist => {
-                  this.props.artistsStore.foundArtists.unshift({id: JSON.stringify(artist.id), name: JSON.stringify(artist.name), img: JSON.stringify(artist.images['0'].url)})}
+                  let urlLength = artist.images['0'].url.length
+                  console.log('cover')
+                  console.log(artist.images['0'].url)
+                  this.props.artistsStore.foundArtists.unshift({id: artist.id, name: artist.name, img: artist.images['0'].url})}
                 )})
               }
               />
