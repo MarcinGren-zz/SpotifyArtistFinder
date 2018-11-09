@@ -12,6 +12,11 @@ module.exports = {
       query: {
         presets: ['@babel/react', '@babel/env']
       }
+    },
+    {
+    // test:/\.(s*)css$/,
+    test: /\.scss$/,
+    use:['style-loader', 'css-loader', 'sass-loader'],
     }]
   },
   resolve: {
