@@ -9,13 +9,7 @@ export default class SearchBox extends Component {
   render() {
     return (
       <div>
-        {/* to be moved to a separate component */}
-        <div className='header-container'>
-        <h1 className='header-text'>
-          Look for your favourite artist!
-        </h1>
-        </div>
-        <p>
+        <div className='input-container'>
           <span className='artist-input'>
             <input
               type='text' 
@@ -48,7 +42,7 @@ export default class SearchBox extends Component {
               </span>
           {/* <input 
             type='submit' /> */}
-        </p>
+        </div>
       </div>
     )
   }

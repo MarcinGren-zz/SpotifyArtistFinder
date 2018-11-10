@@ -1,0 +1,39 @@
+.input-container {
+  width: 60%;
+  margin: auto;
+}
+
+.artist-input {
+  position: relative;
+  font-size: 1.5em;
+  background: linear-gradient(21deg, #10abff, #1beabd);
+  padding: 3px;
+  display: inline-block;
+  border-radius: 9999em;
+  width: 100%;
+
+  *:not(span) {
+    position: relative;
+    display: inherit;
+    border-radius: inherit;
+    margin: 0;
+    border: none;
+    outline: none;
+    padding: 0 .325em;
+    z-index: 1;
+  }
+}
+
+input {
+  font-family: inherit;
+  line-height: inherit;
+  color: #2e3750;
+  min-width: 12em;
+  font-family: sans-serif;
+  font-size: 100%;
+  width: 100%;
+}
+
+::placeholder {
+  color: #cbd0d5;
+}
