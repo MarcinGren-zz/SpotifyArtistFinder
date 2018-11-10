@@ -9,13 +9,13 @@ export default class ArtistsList extends Component {
     console.log('ARTISTSLIST RENDERED')
     return (
       <div>
-        <ul>
+        <ul className='list'>
           {this.props.artistsStore.foundArtists.map(artist => {
             return (
-            <li key={artist.id}>
-              <figure>
-                <figcaption>{artist.name}</figcaption>
-                <img src={artist.img} height='100' width='100'/>
+            <li key={artist.id} className='list-item'>
+              <figure className='item-figure'>
+                <figcaption className='item-caption'>{artist.name}</figcaption>
+                <img src={artist.img} className='item-image'/>
              </figure>
             </li>
           )})}

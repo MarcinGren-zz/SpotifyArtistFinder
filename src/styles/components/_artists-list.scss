@@ -1,0 +1,24 @@
+.list {
+  list-style: none;
+  float: left;
+}
+
+.list-item {
+  background: #fe1;
+  display: inline-block;
+  margin: 30px;
+}
+
+.item-figure {
+  display: table;
+}
+
+.item-image {
+  height: 150px;
+  width: 150px;
+}
+
+.item-caption {
+  display: table-caption;
+  caption-side: bottom;
+}
