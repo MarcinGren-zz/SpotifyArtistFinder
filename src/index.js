@@ -8,7 +8,6 @@ import './styles/main.scss'
 
 ReactDOM.render(
     <div>
-        index react
     <SearchBox artistsStore={artistsStore} />
     {/* <Arists artistsStore={artistsStore} /> */}
     <ArtistsList artistsStore={artistsStore} />

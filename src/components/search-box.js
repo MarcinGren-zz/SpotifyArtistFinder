@@ -9,10 +9,15 @@ export default class SearchBox extends Component {
   render() {
     return (
       <div>
-        <form>
-          <label>
-            Artist:
-            <input 
+        {/* to be moved to a separate component */}
+        <div className='header-container'>
+        <h1 className='header-text'>
+          Look for your favourite artist!
+        </h1>
+        </div>
+        <p>
+          <span className='artist-input'>
+            <input
               type='text' 
               name='artist' 
               value={this.props.artistsStore.searchedArtist}
@@ -29,6 +34,7 @@ export default class SearchBox extends Component {
                 // Bug: Artist might be listed twice which results in more than 5 items listed
                 // Story: Type in 'Avicii' -> Hit backspace 3 times -> Avicii listed more than 
                 // once and more listing than 5
+                
                 // Applied limit on query itself so might remove this later
                 response.data.artists.items.slice(0, 5).map(artist => {
                   let urlLength = artist.images['0'].url.length
@@ -38,11 +44,11 @@ export default class SearchBox extends Component {
                 )})
               }
               />
-              value: {this.props.artistsStore.foundArtists}
-          </label>
-          <input 
-            type='submit' />
-        </form>
+              <span></span>
+              </span>
+          {/* <input 
+            type='submit' /> */}
+        </p>
       </div>
     )
   }
