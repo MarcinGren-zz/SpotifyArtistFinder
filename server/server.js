@@ -23,13 +23,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 saveAcessToken() // Returns accessToken
 
-app.get('/api', (req, res) => {
-  spotifyApi.getArtistRelatedArtists('4dwdTW1Lfiq0cM8nBAqIIz', (err, data) => {
-    if (err) { console.log(err) }
-    else { res.send(data) }
-  })
-})
-
 app.get('/api/artist/:name', (req, res) => {
   spotifyApi.searchArtists(req.params.name, {limit: 5}, (err, data) => {
     console.log(data)
