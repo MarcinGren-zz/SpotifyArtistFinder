@@ -1,9 +1,9 @@
-.input-container {
+.search-box__input-container {
   width: 60%;
   margin: auto;
 }
 
-.artist-input {
+.search-box__artist-input-wrapper {
   position: relative;
   font-size: 1.5em;
   background: linear-gradient(21deg, $search-background-first, $search-background-second);
@@ -24,7 +24,7 @@
   }
 }
 
-input {
+.search-search-box__artist-input {
   font-family: inherit;
   line-height: inherit;
   color: $input-color;

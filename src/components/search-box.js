@@ -9,9 +9,9 @@ export default class SearchBox extends Component {
   render() {
     return (
       <div>
-        <div className='input-container'>
-          <span className='artist-input'>
-            <input
+        <div className='search-box__input-container'>
+          <span className='search-box__artist-input-wrapper'>
+            <input className='search-search-box__artist-input'
               type='text' 
               name='artist' 
               value={this.props.artistsStore.searchedArtist}
@@ -22,7 +22,7 @@ export default class SearchBox extends Component {
               onSubmit={axios.get(`/api/artist/${this.props.artistsStore.searchedArtist}`)
               .then((response) => {
                 console.log(response)
-                console.log('datares')
+                console.log('search-box__datares')
                 console.log(response.data)
                 console.log(JSON.stringify(response.data))
                 // Bug: Artist might be listed twice which results in more than 5 items listed

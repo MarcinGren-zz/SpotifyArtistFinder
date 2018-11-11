@@ -1,9 +1,9 @@
-.list {
+.artists-list__list {
   list-style: none;
   text-align: center;
 }
 
-.list-item {
+.artists-list__list-item {
   display: inline-block;
   vertical-align: top;
   margin: 30px;
@@ -11,19 +11,19 @@
   padding: 5px;
 }
 
-.item-figure {
+.artists-list__item-figure {
   display: table;
   font-family: $item-font, cursive;
   font-size: 13px;
   font-weight: 400;
 }
 
-.item-image {
+.artists-list__item-image {
   height: 150px;
   width: 150px;
 }
 
-.item-caption {
+.artists-list__item-caption {
   display: table-caption;
   caption-side: bottom;
   text-align: center;
