@@ -1,22 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Upright'); //todo move to typography???
-
 .list {
   list-style: none;
-  float: left;
+  text-align: center;
 }
 
 .list-item {
   display: inline-block;
   vertical-align: top;
   margin: 30px;
-  border: solid thin silver; //todo move to var
+  border: solid thin $border-color;
   padding: 5px;
 }
 
 .item-figure {
   display: table;
-  font-family: 'Dancing Script', cursive;
-  font-size: 16px;
+  font-family: $item-font, cursive;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .item-image {
