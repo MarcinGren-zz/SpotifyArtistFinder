@@ -16,7 +16,7 @@ module.exports = {
     {
     // test:/\.(s*)css$/,
     test: /\.scss$/,
-    use:['style-loader', 'css-loader', 'sass-loader'],
+    use:['style-loader', 'css-loader', 'sass-loader']
     }]
   },
   resolve: {
@@ -25,6 +25,6 @@ module.exports = {
   node: {
     fs: 'empty',
     tls: 'empty',
-    net: 'empty',
+    net: 'empty'
   }
 }

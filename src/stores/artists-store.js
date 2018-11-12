@@ -1,4 +1,4 @@
-import { autorun, observable, action, computed } from 'mobx'
+import { autorun, observable, action } from 'mobx'
 
 class ArtistsStore {
   @observable artists = []
@@ -7,19 +7,13 @@ class ArtistsStore {
 
   addArtist(artist) {
     this.artists.push({
-      artist: artist,
+      artist: artist
     })
   }
 
   @action
   updateSearchedArtist(searchedArtist) {
     this.searchedArtist = searchedArtist
-  }
-
-  // Not yet used, to be further explored
-  @computed
-  foundArtistsKeyValue() {
-    return foundArtists.map((artist) => <li key={artist.name}></li>)
   }
 }
 

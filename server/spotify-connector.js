@@ -1,15 +1,14 @@
 require('dotenv').config()
 const request = require('request') // might change to axios
 
-const CLIENT_ID = process.env.CLIENT_ID,
-      CLIENT_SECRET = process.env.CLIENT_SECRET,
+const {CLIENT_ID, CLIENT_SECRET} = process.env,
       CLIENT_CREDENTIALS = 'client_credentials'
 
 
 const authOptions = {
   url: 'https://accounts.spotify.com/api/token',
   headers: {
-    'Authorization': 'Basic ' + (new Buffer(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64'))
+    'Authorization': `Basic ${new Buffer(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
   },
   form: {
     grant_type: CLIENT_CREDENTIALS
