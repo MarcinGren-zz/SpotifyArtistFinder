@@ -1,5 +1,5 @@
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.jsx'],
   output: {
     path: __dirname,
     publicPath: '/',
@@ -7,10 +7,10 @@ module.exports = {
   },
   module: {
     rules: [{
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['@babel/react', '@babel/env']
+      use: {
+        loader: 'babel-loader'
       }
     },
     {

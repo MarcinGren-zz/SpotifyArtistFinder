@@ -2,7 +2,7 @@
   "name": "spotifyhistory",
   "version": "1.0.0",
   "description": "Check your spotify history and favourite artists",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "build": "webpack",
     "start": "node ./server/server.js"

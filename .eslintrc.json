@@ -26,7 +26,7 @@
         "semi": [2, "never"],
         "comma-dangle": [2, "never"],
         "one-var": 0,
-        "no-undef": 0,
+        "no-undef": 1,
         "no-console": 0,
         "no-global-assign": 0,
         "prefer-destructuring": 1,

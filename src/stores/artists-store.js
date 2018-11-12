@@ -1,7 +1,6 @@
 import { autorun, observable } from 'mobx'
 
 class ArtistsStore {
-  @observable artists = []
   @observable searchedArtist = ''
   @observable foundArtists = []
 }

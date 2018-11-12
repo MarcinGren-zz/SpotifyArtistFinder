@@ -1,19 +1,20 @@
 require('dotenv').config()
 
-const express          = require('express'),
-      port             = process.env.PORT,
-      path             = require('path'),
-      webpack          = require('webpack'),
-      config           = require('../webpack.config'),
-      compiler         = webpack(config),
-      cors             = require('cors')
-      app              = express(),
-      spotifyConnector = require('./spotify-connector'),
-      request          = require('request')
-      saveAcessToken   = require('./spotify-connector'),
-      Spotify          = require('spotify-web-api-js'),
-      spotifyApi       = new Spotify(),
-      XMLHttpRequest   = require('xmlhttprequest').XMLHttpRequest
+const express              = require('express'),
+      path                 = require('path'),
+      webpack              = require('webpack'),
+      cors                 = require('cors')
+      request              = require('request')
+      Spotify              = require('spotify-web-api-js'),
+      XMLHttpRequest       = require('xmlhttprequest').XMLHttpRequest,
+      webpackDevMiddleware = require('webpack-dev-middleware')
+      config               = require('../webpack.config'),
+      saveAcessToken       = require('./spotify-connector'),
+      
+      port       = process.env.PORT,
+      compiler   = webpack(config),
+      app        = express(),
+      spotifyApi = new Spotify()
 
 app.use(cors())
 app.options('*', cors())
@@ -24,10 +25,15 @@ app.use(require('webpack-dev-middleware')(compiler, {
 saveAcessToken() // Returns accessToken
 
 app.get('/api/artist/:name', (req, res) => {
-  spotifyApi.searchArtists(req.params.name, {limit: 5}, (err, data) => {
+  spotifyApi.searchArtists(req.params.name, {
+    limit: 5
+  }, (err, data) => {
     console.log(data)
-    if (err) { console.log(err) }
-    else { res.send(data) }
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(data)
+    }
   })
 })
 

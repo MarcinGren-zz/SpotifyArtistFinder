@@ -6,7 +6,6 @@ export default @observer class ArtistsList extends Component {
     const { artistsStore } = this.props
 
     return (
-      <div>
         <ul className="artists-list__list">
           {/* todo - handle empty */}
           {artistsStore.foundArtists.map(artist => (
@@ -21,7 +20,6 @@ export default @observer class ArtistsList extends Component {
             </li>
           ))}
         </ul>
-      </div>
     )
   }
 }
