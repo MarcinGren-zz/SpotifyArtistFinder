@@ -4,7 +4,6 @@ const request = require('request') // might change to axios
 const {CLIENT_ID, CLIENT_SECRET} = process.env,
       CLIENT_CREDENTIALS = 'client_credentials'
 
-
 const authOptions = {
   url: 'https://accounts.spotify.com/api/token',
   headers: {

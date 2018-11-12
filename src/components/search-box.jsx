@@ -24,12 +24,9 @@ export default @observer class SearchBox extends Component {
               onSubmit={axios
                 .get(`/api/artist/${artistsStore.searchedArtist}`)
                 .then(response => {
-                  // Bug: Artist might be listed twice which results in more than 5 items listed
-                  // Type in 'Avicii' -> Hit backspace 3 times -> Avicii listed more than
-                  // once and more listing than 5
-
                   response.data.artists.items.map(artist => {
-                    artistsStore.foundArtists.unshift({
+                    // Going to create action in store to handle this I think
+                    artistsStore.foundArtists.unshift({ //todo handle undefineds
                       id: artist.id,
                       name: artist.name,
                       img: artist.images['0'].url
