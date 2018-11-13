@@ -1,9 +1,16 @@
 # SpotifyHistory
+## Link
+https://spotify-artist-finder.herokuapp.com/
 
-#To Be Done
+## Setup
+- Spotify for Developers account is required - can be created at https://developer.spotify.com/dashboard/login
+- Create a client id and client secret - guide https://developer.spotify.com/documentation/general/guides/app-settings/
+- Create .env file in the project's root
+- Create variables: 
+CLIENT_ID = 'yourclientid'
+CLIENT_SECRET = 'yourclientsecret'
+PORT = yourport
+- npm install
+
+## To Be Done
 Add PropTypes
-
-# Known Issues
-Bug: Artist might be listed twice which results in more than 5 items listed
-Type in 'Avicii' -> Hit backspace 3 times -> Avicii listed more than
-once and more listing than 5
