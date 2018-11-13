@@ -37,7 +37,6 @@ export default @observer class SearchBox extends Component {
             // Applied with each typed letter
             onSubmit={this.getArtists(artistsStore)}
           />
-          <span />
         </span>
       </div>
     )
