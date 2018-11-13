@@ -18,7 +18,7 @@ const express              = require('express'),
 
 app.use(cors())
 app.options('*', cors())
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }))
 
