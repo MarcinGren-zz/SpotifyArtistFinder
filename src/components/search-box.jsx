@@ -3,7 +3,7 @@ import axios from 'axios'
 import { observer } from 'mobx-react'
 
 export default @observer class SearchBox extends Component {
-  
+
   onInputChange = event => {
     const searchedArtist = event.target.value
 
@@ -25,7 +25,6 @@ export default @observer class SearchBox extends Component {
 
     return (
       <div className="search-box__input-container">
-        <span className="search-box__artist-input-wrapper">
           <input
             className="search-box__artist-input"
             type="text"
@@ -33,7 +32,6 @@ export default @observer class SearchBox extends Component {
             value={this.searchedArtist}
             onChange={this.onInputChange}
           />
-        </span>
       </div>
     )
   }

@@ -1,15 +1,11 @@
 .search-box__input-container {
   width: 60%;
   margin: auto;
-}
-
-.search-box__artist-input-wrapper {
   font-size: 1.5em;
   background: linear-gradient(21deg, $search-background-first, $search-background-second);
   padding: 3px;
-  display: inline-block;
+  display: block;
   border-radius: 9999em;
-  width: 100%;
 }
 
 .search-box__artist-input {
