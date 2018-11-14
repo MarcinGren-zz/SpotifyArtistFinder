@@ -4,11 +4,12 @@
 }
 
 .artists-list__list-item {
-  display: inline-block;
+  display: inline-flex;
   vertical-align: top;
   margin: 30px;
   border: solid thin $border-color;
   padding: 5px;
+  max-width: 162px;
 }
 
 .artists-list__item-figure {
@@ -17,6 +18,7 @@
   font-family: $item-font;
   font-size: 13px;
   font-weight: 400;
+  flex: 0;
 }
 
 .artists-list__item-image {
