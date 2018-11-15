@@ -1,0 +1,32 @@
+.artists-list__list {
+  list-style: none;
+  text-align: center;
+}
+
+.artists-list__list-item {
+  display: inline-flex;
+  vertical-align: top;
+  margin: 30px;
+  border: solid thin $border-color;
+  padding: 5px;
+  max-width: 162px;
+}
+
+.artists-list__item-figure {
+  display: flex;
+  flex-direction: column;
+  font-family: $item-font;
+  font-size: 13px;
+  font-weight: 400;
+  flex: 0;
+}
+
+.artists-list__item-image {
+  height: 150px;
+  width: 150px;
+}
+
+.artists-list__item-caption {
+  text-align: center;
+  padding-top: 3px;
+}

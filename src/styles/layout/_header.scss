@@ -1,0 +1,14 @@
+.header-container {
+  background-image: linear-gradient( 135deg, $header-background-first 10%, $header-background-second 100%);
+  border-radius: 0 0 75% 75% / 70%;
+}
+
+.header-text {
+  font-family: $header-font;
+	font-size: 3.5em;
+  margin-bottom: 30px;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px $shadow-color;
+  color: $header-text-color;
+  text-align: center;
+}
