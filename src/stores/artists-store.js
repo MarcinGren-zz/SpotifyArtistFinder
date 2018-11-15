@@ -1,4 +1,4 @@
-import { observable, action, autorun } from 'mobx'
+import { observable, action } from 'mobx'
 import axios from 'axios'
 
 const notAvailableUrl = 'http://089a12354f66f8c089ca-2b0da8e65ee035845e5cc0511bab26ba.r78.cf1.rackcdn.com/global/imagelib/distancelearning/no-img-6c91ea01d3af4559c726afc209ddec79d965cac9.png'
@@ -28,8 +28,3 @@ class ArtistsStore {
 const artistsStore = new ArtistsStore()
 
 export default artistsStore
-
-autorun(() => {
-  console.log(artistsStore.foundArtists.length)
-  console.log(artistsStore.foundArtists)
-})
