@@ -1,10 +1,20 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import axios from 'axios'
+import artistsStore from './artists-store'
 
 class ArtistInfoStore {
 
   @observable displayInfo = false
   @observable clickedArtist = ''
+  @observable artistInfo = {}
+
+  @action
+  getArtistInfo() {
+    console.log('here')
+    this.artistInfo = artistsStore.getClickedArtist(this.clickedArtist)
+    console.log(this.artistInfo)
+    return this.artistInfo
+  }
 
 
   // axios.get(`/api/artistinfo/${artistId}`)

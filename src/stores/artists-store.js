@@ -19,6 +19,7 @@ class ArtistsStore {
             id: artist.id,
             name: artist.name,
             popularity: artist.popularity,
+            followers: artist.followers.total,
             genres: artist.genres,
             img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
           }))
@@ -27,8 +28,8 @@ class ArtistsStore {
   }
 
   @action
-  getArtistInfo(clickedArtist) {
-    return artistsStore.foundArtists.filter(artist => artist.id === clickedArtist)
+  getClickedArtist(clickedArtist) {
+    return artistsStore.foundArtists.find(artist => artist.id === clickedArtist)
   }
 }
 
