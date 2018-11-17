@@ -18,10 +18,17 @@ class ArtistsStore {
           artistsStore.foundArtists = response.data.artists.items.map(artist => ({
             id: artist.id,
             name: artist.name,
+            popularity: artist.popularity,
+            genres: artist.genres,
             img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
           }))
         })
     }
+  }
+
+  @action
+  getArtistInfo(clickedArtist) {
+    return artistsStore.foundArtists.filter(artist => artist.id === clickedArtist)
   }
 }
 

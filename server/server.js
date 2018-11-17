@@ -37,6 +37,18 @@ app.get('/api/artist/:name', (req, res) => {
   })
 })
 
+app.get('/api/artistinfo/:id', (req, res) => {
+  spotifyApi.getArtist(req.params.id,
+    (err, data) => {
+      console.log(data)
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'))
 })

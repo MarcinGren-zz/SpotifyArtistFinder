@@ -4,7 +4,9 @@ import { observer } from 'mobx-react'
 export default @observer class ArtistsList extends Component {
 
   onArtistClick(artistId) {
-    console.log(artistId)
+    this.props.artistInfoStore.clickedArtist = artistId
+    this.props.artistInfoStore.displayInfo = true
+
   }
 
   render() {
