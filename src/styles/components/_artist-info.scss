@@ -1,0 +1,51 @@
+.ai__artists-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "name name""popularity followers""genres genres""genres genres";
+  text-align: center;
+}
+
+.ai__name {
+  grid-area: name;
+  background-color: red;
+}
+
+.ai__popularity {
+  grid-area: popularity;
+  background-color: blue;
+}
+
+.ai__followers {
+  grid-area: followers;
+  background-color: pink;
+}
+
+.ai__genres {
+  grid-area: genres;
+  background-color: green;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "one two""three four";
+}
+
+.ai__genre-one {
+  grid-area: one;
+  background-color: yellow;
+}
+
+.ai__genre-two {
+  grid-area: two;
+  background-color: brown;
+}
+
+.ai__genre-three {
+  grid-area: three;
+  background-color: teal;
+}
+
+.ai__genre-four {
+  grid-area: four;
+  background-color: burlywood;
+}
