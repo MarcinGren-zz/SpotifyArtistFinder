@@ -15,9 +15,15 @@ PORT = yourport
 ## To Be Done
 ### Technical
 - Add PropTypes
-- Add ReactRouter (to avoid using displayArtist)
+- Add ReactRouter (to avoid using displayInfo)
 - Add RxJS (to improve http requests and to ensure that correct data is always received)
+- Media queries to improve mobile version
+- Might introduce Provider
 
 ### New Functionality 
 Improving the style of existing Artist Info, addition of Artist's Albums and Related Artists as below
 ![alt text](https://i.imgur.com/CkfAJmj.jpg)
+
+## Known Issues
+- Search box on mobile has right side cut off (using a media query to make it a bit smaller should fix it)
+- Possible for API to return the wrong data if the last request finishes earlier than others
