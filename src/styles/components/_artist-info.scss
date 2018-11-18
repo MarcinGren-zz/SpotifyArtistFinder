@@ -4,31 +4,32 @@
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "name name""popularity followers""genres genres""genres genres";
   text-align: center;
+  width: 50%;
 }
 
 .ai__name {
   grid-area: name;
-  background-color: red;
+  font-size: 1.8em;
+  margin-bottom: 5px;
 }
 
 .ai__popularity {
   grid-area: popularity;
-  background-color: blue;
+  font-size: 1.1em;
 }
 
 .ai__followers {
   grid-area: followers;
-  background-color: pink;
+  font-size: 1.1em;
 }
 
 .ai__genres {
   grid-area: genres;
-  background-color: green;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
 
 .ai__genre {
-  background-color: yellow;
+  font-size: 0.8em;
 }

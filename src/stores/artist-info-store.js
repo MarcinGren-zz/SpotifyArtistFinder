@@ -10,9 +10,9 @@ class ArtistInfoStore {
   @action
   getArtistInfo() {
     this.artistInfo = artistsStore.getClickedArtist(this.clickedArtist)
-    // Want to display only 4 genres
+    // Want to display only 6 genres tops
     console.log(JSON.stringify(this.artistInfo.genres))
-    this.artistInfo.genres.length = 4
+    this.artistInfo.genres.length = 6
     console.log(JSON.stringify(this.artistInfo.genres))
     return this.artistInfo
   }

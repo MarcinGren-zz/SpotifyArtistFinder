@@ -9,7 +9,7 @@ export default @observer class ArtistsContainer extends Component {
     const { artistInfoStore } = this.props
 
     return (
-      <div>
+      <div className="results">
         <ArtistsList
           artistsStore={this.props.artistsStore}
           artistInfoStore={this.props.artistInfoStore}

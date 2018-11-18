@@ -8,7 +8,6 @@ export default @observer class ArtistInfo extends Component {
     return (
       <div className="ai__artists-grid">
         <div className="ai__name">
-          <span>Name: </span>
           <span>{artistInfoStore.artistInfo.name}</span>
         </div>
         <div className="ai__popularity">
