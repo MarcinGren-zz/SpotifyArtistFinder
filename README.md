@@ -1,4 +1,6 @@
-# SpotifyHistory
+# SpotifyArtistFinder
+Look for your favourite artists in Spotify directory, find out their popularity and followers.
+
 ## Link
 https://spotify-artist-finder.herokuapp.com/
 
