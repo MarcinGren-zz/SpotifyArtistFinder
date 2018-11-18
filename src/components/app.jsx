@@ -9,7 +9,10 @@ import '../styles/main.scss'
 const App = () => (
   <div>
     <Header />
-    <SearchBox artistsStore={artistsStore} />
+    <SearchBox 
+      artistsStore={artistsStore}
+      artistInfoStore={artistInfoStore}  
+    />
     <ArtistContainer
       artistsStore={artistsStore}
       artistInfoStore={artistInfoStore}
