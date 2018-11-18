@@ -13,4 +13,11 @@ PORT = yourport
 - npm install
 
 ## To Be Done
-Add PropTypes
+### Technical
+- Add PropTypes
+- Add ReactRouter (to avoid using displayArtist)
+- Add RxJS (to improve http requests and to ensure that correct data is always received)
+
+### New Functionality 
+Improving the style of existing Artist Info, addition of Artist's Albums and Related Artists as below
+![alt text](https://i.imgur.com/CkfAJmj.jpg)
