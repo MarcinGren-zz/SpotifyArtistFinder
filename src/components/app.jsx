@@ -10,7 +10,10 @@ const App = () => (
   <div>
     <Header />
     <SearchBox artistsStore={artistsStore} />
-    <ArtistContainer artistsStore={artistsStore} artistInfoStore={artistInfoStore} />
+    <ArtistContainer
+      artistsStore={artistsStore}
+      artistInfoStore={artistInfoStore}
+    />
   </div>
 )
 

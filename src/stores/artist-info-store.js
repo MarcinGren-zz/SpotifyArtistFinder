@@ -1,5 +1,4 @@
-import { observable, action, computed } from 'mobx'
-import axios from 'axios'
+import { observable, action } from 'mobx'
 import artistsStore from './artists-store'
 
 class ArtistInfoStore {
@@ -17,30 +16,6 @@ class ArtistInfoStore {
     console.log(JSON.stringify(this.artistInfo.genres))
     return this.artistInfo
   }
-
-
-  // axios.get(`/api/artistinfo/${artistId}`)
-  // .then(response => {
-  //   // console.log(response)
-  // })
-
-  // @action
-  // getArtistInfo(searchTerm) {
-  //   if (searchTerm === '') {
-  //     artistsStore.foundArtists = []
-  //   } else {
-  //     axios
-  //       .get(`/api/artist/${searchTerm}`)
-  //       .then(response => {
-  //         artistsStore.foundArtists = response.data.artists.items.map(artist => ({
-  //           id: artist.id,
-  //           name: artist.name,
-  //           img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
-  //         }))
-  //       })
-  //   }
-  // }
-
 }
 
 const artistInfoStore = new ArtistInfoStore()
