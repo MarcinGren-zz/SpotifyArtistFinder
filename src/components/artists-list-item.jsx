@@ -19,12 +19,12 @@ export default @observer class ArtistsListInfo extends Component {
     return (
       <li
         key={artist.id}
-        className="artists-list__list-item"
+        className="al__list-item"
         onClick={this.onArtistClick}
       >
-        <figure className="artists-list__item-figure">
-          <img src={artist.img} className="artists-list__item-image" />
-          <figcaption className="artists-list__item-caption">
+        <figure className="al__item-figure">
+          <img src={artist.img} className="al__item-image" />
+          <figcaption className="al__item-caption">
             {artist.name}
           </figcaption>
         </figure>

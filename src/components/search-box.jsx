@@ -11,9 +11,9 @@ export default @observer class SearchBox extends Component {
   render() {
 
     return (
-      <div className="search-box__input-container">
+      <div className="sb__input-container">
         <input
-          className="search-box__artist-input"
+          className="sb__artist-input"
           type="text"
           name="artist"
           value={this.searchedArtist}

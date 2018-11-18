@@ -8,7 +8,7 @@ export default @observer class ArtistsList extends Component {
     const { artistsStore } = this.props
 
     return (
-      <ul className="artists-list__list">
+      <ul className="al__list">
         {artistsStore.foundArtists.map(artist => (
           <ArtistsListItem
             key={artist.id}
