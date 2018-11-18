@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import ArtistsList from './artists-list'
 import ArtistInfo from './artist-info'
-import artistInfoStore from '../stores/artist-info-store'
 
 export default @observer class ArtistsContainer extends Component {
+
   render() {
+    const { artistInfoStore } = this.props
+
     return (
       <div>
         <ArtistsList
