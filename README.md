@@ -29,3 +29,4 @@ Improving the style of existing Artist Info, addition of Artist's Albums and Rel
 ## Known Issues
 - Search box on mobile has right side cut off (using a media query to make it a bit smaller should fix it)
 - Possible for API to return the wrong data if the last request finishes earlier than others
+- Possible longer loading time from time to time (results from heroku entering sleep mode after which node.js server needs to start from scratch)
