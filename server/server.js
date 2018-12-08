@@ -28,7 +28,6 @@ app.get('/api/artist/:name', (req, res) => {
   spotifyApi.searchArtists(req.params.name, {
     limit: 5
   }, (err, data) => {
-    console.log(data)
     if (err) {
       console.log(err)
     } else {
@@ -37,18 +36,17 @@ app.get('/api/artist/:name', (req, res) => {
   })
 })
 
-// To be reused for getting artist's albums / related artists
-// app.get('/api/artistinfo/:id', (req, res) => {
-//   spotifyApi.getArtist(req.params.id,
-//     (err, data) => {
-//       console.log(data)
-//       if (err) {
-//         console.log(err)
-//       } else {
-//         res.send(data)
-//       }
-//     })
-// })
+app.get('/api/artistalbums/:id', (req, res) => {
+  spotifyApi.getArtistAlbums(req.params.id,
+    (err, data) => {
+      console.log(data)
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
+})
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'))
