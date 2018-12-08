@@ -13,6 +13,7 @@ CLIENT_ID = 'yourclientid'
 CLIENT_SECRET = 'yourclientsecret'
 PORT = yourport
 - npm install
+- npm start
 
 ## To Be Done
 ### Technical
