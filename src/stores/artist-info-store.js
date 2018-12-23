@@ -34,6 +34,7 @@ class ArtistInfoStore {
           id: album.id,
           name: album.name,
           releaseDate: album.release_date,
+          type: album.album_type,
           img: album.images['0'] ? album.images['0'].url : notAvailableUrl
         }))
         console.log('aftermap')
