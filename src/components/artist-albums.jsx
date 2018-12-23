@@ -7,7 +7,7 @@ import ArtistAlbum from './artist-album'
     const { artistInfoStore } = this.props
 
     return(
-      <ul>
+      <ul className='aa__list'>
         {artistInfoStore.artistsAlbums.map(album => (
           <ArtistAlbum 
             key={album.id}

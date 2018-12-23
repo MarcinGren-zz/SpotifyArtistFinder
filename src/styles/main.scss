@@ -2,9 +2,12 @@
 
 @import 'base/_typography.scss';
 
+@import 'components/_artist-album.scss';
+@import 'components/_artist-albums.scss';
+@import 'components/_artist-info-container.scss';
+@import 'components/_artist-info.scss';
 @import 'components/_artists-list.scss';
 @import 'components/_search-box.scss';
-@import 'components/_artist-info.scss';
 
 @import '/layout/_header.scss';
 

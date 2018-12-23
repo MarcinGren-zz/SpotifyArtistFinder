@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import ArtistsList from './artists-list'
-import ArtistInfoContainer from './artist-info-container'
+import ArtistInfo from './artist-info'
+import ArtistAlbums from './artist-albums'
 
 export default @observer class ArtistsContainer extends Component {
 
@@ -9,14 +10,15 @@ export default @observer class ArtistsContainer extends Component {
     const { artistInfoStore } = this.props
 
     return (
-      <div className="results">
-        <ArtistsList
-          artistsStore={this.props.artistsStore}
-          artistInfoStore={this.props.artistInfoStore}
-        />
+      <div className='aic__container'>
         {artistInfoStore.displayInfo ? (
-          <ArtistInfoContainer
+          <ArtistInfo
             artistsStore={this.props.artistsStore}
+            artistInfoStore={this.props.artistInfoStore}
+          />
+        ) : null}
+        {artistInfoStore.artistsAlbums.length > 0 ? (
+          <ArtistAlbums
             artistInfoStore={this.props.artistInfoStore}
           />
         ) : null}

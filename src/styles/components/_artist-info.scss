@@ -1,10 +1,13 @@
+.ai__container {
+  width: 40%;
+}
+
 .ai__artists-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "name name""popularity followers""genres genres""genres genres";
   text-align: center;
-  width: 50%;
 }
 
 .ai__name {
