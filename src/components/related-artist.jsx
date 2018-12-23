@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
-@observer class ArtistAlbum extends Component {
+@observer class RelatedArtist extends Component {
   render() {
-    const { album } = this.props
+    const { artist } = this.props
 
     return (
       <li
-        key={album.id}
+        key={artist.id}
         className="aa__list-item"
       >
         <figure className="aa__item-figure">
-          <img src={album.img} className="aa__item-image" />
+          <img src={artist.img} className="aa__item-image" />
           <figcaption className="aa__item-caption">
-            {album.name}
+            {artist.name}
           </figcaption>
         </figure>
       </li>
@@ -21,4 +21,4 @@ import { observer } from 'mobx-react'
   }
 }
 
-export default ArtistAlbum
+export default RelatedArtist

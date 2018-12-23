@@ -10,14 +10,13 @@ class ArtistInfoStore {
   @observable clickedArtist = ''
   @observable artistInfo = {}
   @observable artistsAlbums = []
+  @observable relatedArtists = []
 
   @action
   getArtistInfo() {
     this.artistInfo = artistsStore.getClickedArtist(this.clickedArtist)
     // Want to display only 6 genres tops
-    console.log(JSON.stringify(this.artistInfo.genres))
     this.artistInfo.genres.length = 6
-    console.log(JSON.stringify(this.artistInfo.genres))
     return this.artistInfo
   }
 
@@ -26,10 +25,6 @@ class ArtistInfoStore {
     axios
       .get(`/api/artistalbums/${artistId}`)
       .then(response => {
-        console.log('artistinfostore')
-        console.log(this.artistsAlbums)
-        console.log('data')
-        console.log(response.data)
         this.artistsAlbums = response.data.items.map(album => ({
           id: album.id,
           name: album.name,
@@ -37,9 +32,22 @@ class ArtistInfoStore {
           type: album.album_type,
           img: album.images['0'] ? album.images['0'].url : notAvailableUrl
         }))
-        console.log('aftermap')
-        console.log(this.artistsAlbums)
+      })
+  }
 
+  @action
+  getRelatedArtists(artistId) {
+    axios
+      .get(`/api/relatedartists/${artistId}`)
+      .then(response => {
+        console.log('response')
+        console.log(response)
+        this.relatedArtists = response.data.artists.map(artist => ({
+          id: artist.id,
+          name: artist.name,
+          img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
+        }))
+        console.log(this.relatedArtists)
       })
   }
 }

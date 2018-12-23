@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import ArtistsList from './artists-list'
 import ArtistInfo from './artist-info'
 import ArtistAlbums from './artist-albums'
+import RelatedArtists from './related-artists'
 
 export default @observer class ArtistsContainer extends Component {
 
@@ -19,6 +20,11 @@ export default @observer class ArtistsContainer extends Component {
         ) : null}
         {artistInfoStore.artistsAlbums.length > 0 ? (
           <ArtistAlbums
+            artistInfoStore={this.props.artistInfoStore}
+          />
+        ) : null}
+        {artistInfoStore.relatedArtists.length > 0 ? (
+          <RelatedArtists
             artistInfoStore={this.props.artistInfoStore}
           />
         ) : null}

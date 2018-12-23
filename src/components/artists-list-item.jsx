@@ -13,6 +13,7 @@ export default @observer class ArtistsListInfo extends Component {
     this.props.artistInfoStore.displayInfo = true
 
     this.props.artistInfoStore.getArtistAlbums(this.props.artist.id)
+    this.props.artistInfoStore.getRelatedArtists(this.props.artist.id)
   }
 
   render() {
