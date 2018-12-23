@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
+// move to be rendered from aritst-list-item and dont use store but maybe pass part of state as props
 export default @observer class ArtistInfo extends Component {
   render() {
     const { artistInfoStore } = this.props

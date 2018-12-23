@@ -39,7 +39,7 @@ app.get('/api/artist/:name', (req, res) => {
 app.get('/api/artistalbums/:id', (req, res) => {
   spotifyApi.getArtistAlbums(req.params.id,
     (err, data) => {
-      console.log(data)
+      // console.log(data)
       if (err) {
         console.log(err)
       } else {

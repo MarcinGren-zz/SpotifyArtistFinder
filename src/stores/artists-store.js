@@ -10,12 +10,12 @@ class ArtistsStore {
   @action
   getArtist(searchTerm) {
     if (searchTerm === '') {
-      artistsStore.foundArtists = []
+      this.foundArtists = []
     } else {
       axios
         .get(`/api/artist/${searchTerm}`)
         .then(response => {
-          artistsStore.foundArtists = response.data.artists.items.map(artist => ({
+          this.foundArtists = response.data.artists.items.map(artist => ({
             id: artist.id,
             name: artist.name,
             popularity: artist.popularity,
