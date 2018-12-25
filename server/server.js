@@ -62,6 +62,19 @@ app.get('/api/relatedartists/:id', (req, res) => {
     })
 })
 
+//gonna DRY the requests i think as they're quite similar
+app.get('/api/albumtracks/:id', (req, res) => {
+  spotifyApi.getAlbumTracks(req.params.id,
+    (err, data) => {
+      console.log(JSON.stringify(data))
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'))
 })

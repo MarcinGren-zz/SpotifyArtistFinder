@@ -12,6 +12,7 @@ import ArtistAlbum from './artist-album'
           <ArtistAlbum 
             key={album.id}
             album={album}
+            artistInfoStore={artistInfoStore}
           />
         ))}
       </ul>
