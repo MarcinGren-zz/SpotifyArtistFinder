@@ -6,17 +6,16 @@
 .aa__list-item {
   display: inline-flex;
   vertical-align: top;
-  margin: 30px;
-  margin-bottom: 10px;
+  margin: 10px;
   border: solid thin $border-color;
   padding: 5px;
-  max-width: 112px;
+  max-width: 87px;
 }
 
 .aa__item-figure {
   display: flex;
   flex-direction: column;
-  font-size: 13px;
+  font-size: 0.7em;
   font-weight: 400;
   flex: 0;
   transition: transform 0.5s, opacity 0.5s;
@@ -30,8 +29,8 @@
 }
 
 .aa__item-image {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
 }
 
 .aa__item-caption {

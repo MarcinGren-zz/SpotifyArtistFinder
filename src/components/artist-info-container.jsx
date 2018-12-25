@@ -12,17 +12,19 @@ export default @observer class ArtistsContainer extends Component {
 
     return (
       <div className='aic__container'>
-        {artistInfoStore.displayInfo ? (
-          <ArtistInfo
-            artistsStore={this.props.artistsStore}
-            artistInfoStore={this.props.artistInfoStore}
-          />
-        ) : null}
-        {artistInfoStore.artistsAlbums.length > 0 ? (
-          <ArtistAlbums
-            artistInfoStore={this.props.artistInfoStore}
-          />
-        ) : null}
+        <div className='ai__container'>
+          {artistInfoStore.displayInfo ? (
+            <ArtistInfo
+              artistsStore={this.props.artistsStore}
+              artistInfoStore={this.props.artistInfoStore}
+            />
+          ) : null}
+          {artistInfoStore.artistsAlbums.length > 0 ? (
+            <ArtistAlbums
+              artistInfoStore={this.props.artistInfoStore}
+            />
+          ) : null}
+        </div>
         {artistInfoStore.relatedArtists.length > 0 ? (
           <RelatedArtists
             artistInfoStore={this.props.artistInfoStore}
