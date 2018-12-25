@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+  color: $input-color;
+}
+
+.link:focus,
+.link:hover,
+.link:visited,
+.link:link,
+.link:active {
+  text-decoration: none;
+  color: $input-color;
+}
