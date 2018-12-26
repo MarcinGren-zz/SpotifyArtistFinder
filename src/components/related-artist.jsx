@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 
 @observer class RelatedArtist extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.props.artistInfoStore.getSingleArtist(this.props.artist.id)
+    this.props.artistInfoStore.getArtistAlbums(this.props.artist.id)
+  }
+
   render() {
     const { artist } = this.props
 
@@ -9,6 +19,7 @@ import { observer } from 'mobx-react'
       <li
         key={artist.id}
         className="aa__list-item"
+        onClick={this.handleClick}
       >
         <figure className="aa__item-figure">
           <img src={artist.img} className="aa__item-image" />

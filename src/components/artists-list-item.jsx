@@ -8,12 +8,14 @@ export default @observer class ArtistsListInfo extends Component {
   }
 
   onArtistClick() {
-    this.props.artistInfoStore.clickedArtist = this.props.artist.id
-    this.props.artistInfoStore.getArtistInfo()
-    this.props.artistInfoStore.displayInfo = true
+    const { artistInfoStore, artist } = this.props
+    
+    artistInfoStore.clickedArtist = artist.id
+    artistInfoStore.getArtistInfo(artistInfoStore.clickedArtist)
+    artistInfoStore.displayInfo = true
 
-    this.props.artistInfoStore.getArtistAlbums(this.props.artist.id)
-    this.props.artistInfoStore.getRelatedArtists(this.props.artist.id)
+    artistInfoStore.getArtistAlbums(artist.id)
+    artistInfoStore.getRelatedArtists(artist.id)
   }
 
   render() {

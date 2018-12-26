@@ -11,27 +11,26 @@ import AlbumSongList from './album-song-list';
     return(
       <Router>
         <div>
-        <Route
-          path='/'
-          render={() => (
-            <ul className='aa__list'>
-              {artistInfoStore.artistsAlbums.map(album => (
-                <Link to={`/album/${album.id}`} className='link' key={album.id}>
-                  <ArtistAlbum 
-                    album={album}
-                    artistInfoStore={artistInfoStore}
-                  />
-                </Link>
-              ))}
-            </ul>
-          )}
-        />
-        <Route
-          path='/album/:id'
-          render={() => (
-            <AlbumSongList />
-          )}
-        />
+          <Route
+            path='/'
+            component={props => (
+              <ul className='aa__list'>
+                {artistInfoStore.artistsAlbums.map(album => (
+                  <Link to={`/album/${album.id}`} className='link' key={album.id}>
+                    <ArtistAlbum 
+                      album={album}
+                      artistInfoStore={artistInfoStore}
+                      {...props}
+                    />
+                  </Link>
+                ))}
+              </ul>
+            )}
+          />
+          <Route
+            path='/album/:id'
+            component={props => <AlbumSongList {...props} />}
+          />
         </div>
       </Router>
     )

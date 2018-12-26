@@ -12,7 +12,8 @@ import RelatedArtist from './related-artist'
           <RelatedArtist
             key={artist.id}
             artist={artist}
-          />) )}
+            artistInfoStore={artistInfoStore}
+          />))}
       </ul>
     )
   }
