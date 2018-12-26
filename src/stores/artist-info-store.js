@@ -12,6 +12,7 @@ class ArtistInfoStore {
   @observable artistsAlbums = []
   @observable relatedArtists = []
   @observable albumTracks = []
+  @observable displaySongs = false
 
   @action
   getArtistInfo(artistId) {
