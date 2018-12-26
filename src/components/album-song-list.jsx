@@ -24,7 +24,7 @@ import { Redirect } from 'react-router-dom'
 
   handleClickOutside() {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({ redirect: true})
+      this.setState({ redirect: true })
       console.log('clicked outside')
     }
   }
