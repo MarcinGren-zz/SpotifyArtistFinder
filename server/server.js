@@ -36,12 +36,22 @@ app.get('/api/artist/:name', (req, res) => {
   })
 })
 
+app.get('/api/findartist/:name', (req, res) => {
+  spotifyApi.getArtist(req.params.name,
+    (err, data) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
+})
+
 app.get('/api/artistalbums/:id', (req, res) => {
   spotifyApi.getArtistAlbums(req.params.id, {
     include_groups: 'album,single',
     market: 'PL' //might try a different way to obtain it in the future
   }, (err, data) => {
-    // console.log(data)
     if (err) {
       console.log(err)
     } else {
@@ -53,7 +63,6 @@ app.get('/api/artistalbums/:id', (req, res) => {
 app.get('/api/relatedartists/:id', (req, res) => {
   spotifyApi.getArtistRelatedArtists(req.params.id,
     (err, data) => {
-      console.log(data)
       if (err) {
         console.log(err)
       } else {
@@ -66,7 +75,6 @@ app.get('/api/relatedartists/:id', (req, res) => {
 app.get('/api/albumtracks/:id', (req, res) => {
   spotifyApi.getAlbumTracks(req.params.id,
     (err, data) => {
-      console.log(JSON.stringify(data))
       if (err) {
         console.log(err)
       } else {
