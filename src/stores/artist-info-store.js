@@ -11,8 +11,6 @@ class ArtistInfoStore {
   @observable artistInfo = {}
   @observable artistsAlbums = []
   @observable relatedArtists = []
-  @observable albumTracks = []
-  @observable displaySongs = false
 
   @action
   getArtistInfo(artistId) {
@@ -67,19 +65,6 @@ class ArtistInfoStore {
           img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
         }))
         console.log(this.relatedArtists)
-      })
-  }
-
-  @action
-  getAlbumTracks(albumId) {
-    axios
-      .get(`/api/albumtracks/${albumId}`)
-      .then(response => {
-        this.albumTracks = response.data.items.map(track => ({
-          id: track.id,
-          name: track.name,
-          previewUrl: track.preview_url
-        }))
       })
   }
 }

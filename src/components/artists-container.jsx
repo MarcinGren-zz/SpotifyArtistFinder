@@ -7,7 +7,7 @@ import AlbumSongList from './album-song-list'
 export default @observer class ArtistsContainer extends Component {
 
   render() {
-    const { artistsStore, artistInfoStore } = this.props
+    const { artistsStore, artistInfoStore, songsStore } = this.props
 
     return (
       <div className="results">
@@ -19,11 +19,13 @@ export default @observer class ArtistsContainer extends Component {
           <ArtistInfoContainer
             artistsStore={artistsStore}
             artistInfoStore={artistInfoStore}
+            songsStore={songsStore}
           />
         ) : null}
-        {artistInfoStore.displaySongs ? (
+        {songsStore.displaySongs ? (
           <AlbumSongList
             artistInfoStore={artistInfoStore}
+            songsStore={songsStore}
           />
         ) : null}
       </div>

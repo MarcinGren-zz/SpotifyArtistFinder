@@ -22,7 +22,7 @@ import { observer } from 'mobx-react'
 
   handleClickOutside() {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.artistInfoStore.displaySongs = false
+      this.props.songsStore.displaySongs = false
       console.log('clicked outside')
     }
   }

@@ -4,6 +4,8 @@
   z-index: 10;
   background-color: #3f3f3f;
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
 }

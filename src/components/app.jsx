@@ -4,6 +4,7 @@ import SearchBox from './search-box'
 import ArtistContainer from './artists-container'
 import artistsStore from '../stores/artists-store'
 import artistInfoStore from '../stores/artist-info-store'
+import songsStore from '../stores/songs-store'
 import '../styles/main.scss'
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
     <ArtistContainer
       artistsStore={artistsStore}
       artistInfoStore={artistInfoStore}
+      songsStore={songsStore}
     />
   </div>
 )

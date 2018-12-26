@@ -8,26 +8,27 @@ import RelatedArtists from './related-artists'
 export default @observer class ArtistsContainer extends Component {
 
   render() {
-    const { artistInfoStore } = this.props
+    const { artistInfoStore, artistsStore, songsStore } = this.props
 
     return (
       <div className='aic__container'>
         <div className='ai__container'>
           {artistInfoStore.displayInfo ? (
             <ArtistInfo
-              artistsStore={this.props.artistsStore}
-              artistInfoStore={this.props.artistInfoStore}
+              artistsStore={artistsStore}
+              artistInfoStore={artistInfoStore}
             />
           ) : null}
           {artistInfoStore.artistsAlbums.length > 0 ? (
             <ArtistAlbums
-              artistInfoStore={this.props.artistInfoStore}
+              artistInfoStore={artistInfoStore}
+              songsStore={songsStore}
             />
           ) : null}
         </div>
         {artistInfoStore.relatedArtists.length > 0 ? (
           <RelatedArtists
-            artistInfoStore={this.props.artistInfoStore}
+            artistInfoStore={artistInfoStore}
           />
         ) : null}
       </div>

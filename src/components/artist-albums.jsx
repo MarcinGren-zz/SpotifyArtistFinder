@@ -4,7 +4,7 @@ import ArtistAlbum from './artist-album'
 
 @observer class AritstAlbums extends Component {
   render() {
-    const { artistInfoStore } = this.props
+    const { artistInfoStore, songsStore } = this.props
 
     return(
       <ul className='aa__list'>
@@ -13,6 +13,7 @@ import ArtistAlbum from './artist-album'
             key={album.id}
             album={album}
             artistInfoStore={artistInfoStore}
+            songsStore={songsStore}
           />
         ))}
       </ul>

@@ -52,6 +52,8 @@ app.get('/api/artistalbums/:id', (req, res) => {
     include_groups: 'album,single',
     market: 'PL' //might try a different way to obtain it in the future
   }, (err, data) => {
+    console.log('in server')
+    console.log(JSON.stringify(data))
     if (err) {
       console.log(err)
     } else {

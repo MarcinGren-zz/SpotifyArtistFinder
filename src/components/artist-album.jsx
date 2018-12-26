@@ -8,10 +8,8 @@ import { observer } from 'mobx-react'
   }
 
   onAlbumClick() {
-    console.log('in artist album click')
-    console.log(this.props.artistInfoStore.displaySongs)
-    this.props.artistInfoStore.getAlbumTracks(this.props.album.id)
-    this.props.artistInfoStore.displaySongs = true
+    this.props.songsStore.getAlbumTracks(this.props.album.id)
+    this.props.songsStore.displaySongs = true
   }
 
   render() {
