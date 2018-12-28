@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import Song from './song'
 
 @observer class AlbumSongList extends Component {
   constructor(props) {
@@ -28,12 +29,18 @@ import { observer } from 'mobx-react'
   }
 
   render() {
-    // const { artistInfoStore } = this.props
+    const { songsStore } = this.props
 
     return (
-      <div ref={this.setWrapperRef} className='asl__container'>
-        asd
-      </div>
+      <ul ref={this.setWrapperRef} className='asl__container'>
+        {songsStore.albumTracks.map(track => (
+          <Song
+            key={track.id}
+            song={track}
+            songsStore={songsStore}
+          />
+        ))}
+      </ul>
     )
   }
 }

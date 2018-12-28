@@ -52,8 +52,6 @@ app.get('/api/artistalbums/:id', (req, res) => {
     include_groups: 'album,single',
     market: 'PL' //might try a different way to obtain it in the future
   }, (err, data) => {
-    console.log('in server')
-    console.log(JSON.stringify(data))
     if (err) {
       console.log(err)
     } else {
@@ -75,14 +73,17 @@ app.get('/api/relatedartists/:id', (req, res) => {
 
 //gonna DRY the requests i think as they're quite similar
 app.get('/api/albumtracks/:id', (req, res) => {
-  spotifyApi.getAlbumTracks(req.params.id,
-    (err, data) => {
-      if (err) {
-        console.log(err)
-      } else {
-        res.send(data)
-      }
-    })
+  spotifyApi.getAlbumTracks(req.params.id, {
+    market: 'PL'
+  },
+  (err, data) => {
+    console.log(JSON.stringify(data))
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(data)
+    }
+  })
 })
 
 app.get('*', (req, res) => {

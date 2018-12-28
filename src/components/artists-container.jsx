@@ -24,7 +24,6 @@ export default @observer class ArtistsContainer extends Component {
         ) : null}
         {songsStore.displaySongs ? (
           <AlbumSongList
-            artistInfoStore={artistInfoStore}
             songsStore={songsStore}
           />
         ) : null}
