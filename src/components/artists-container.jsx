@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import ArtistsList from './artists-list'
 import ArtistInfoContainer from './artist-info-container'
-import AlbumSongList from './album-song-list'
+import AlbumSongsContainer from './album-songs-container'
 
 export default @observer class ArtistsContainer extends Component {
 
@@ -23,7 +23,7 @@ export default @observer class ArtistsContainer extends Component {
           />
         ) : null}
         {songsStore.displaySongs ? (
-          <AlbumSongList
+          <AlbumSongsContainer
             songsStore={songsStore}
           />
         ) : null}

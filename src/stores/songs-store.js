@@ -1,10 +1,12 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import axios from 'axios'
 
 class SongsStore {
 
   @observable albumTracks = []
   @observable displaySongs = false
+  @observable clickedSong = ''
+  @observable songToDisplay = {}
 
   @action
   getAlbumTracks(albumId) {
@@ -17,6 +19,13 @@ class SongsStore {
           previewUrl: track.preview_url
         }))
       })
+  }
+
+  @action
+  getClickedSong() {
+    this.songToDisplay = this.albumTracks.find(song => song.id === this.clickedSong)
+    console.log(this.songToDisplay)
+    console.log(this.songToDisplay.previewUrl)
   }
 }
 

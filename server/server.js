@@ -77,7 +77,6 @@ app.get('/api/albumtracks/:id', (req, res) => {
     market: 'PL'
   },
   (err, data) => {
-    console.log(JSON.stringify(data))
     if (err) {
       console.log(err)
     } else {
