@@ -22,8 +22,13 @@ import Song from './song'
   }
 
   handleClickOutside() {
+    const { songsStore } = this.props
+
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.props.songsStore.displaySongs = false
+      songsStore.displaySongs = false
+      songsStore.albumTracks = []
+      songsStore.clickedSong = ''
+      songsStore.songToDisplay = {}
       console.log('clicked outside')
     }
   }
