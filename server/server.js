@@ -85,6 +85,18 @@ app.get('/api/albumtracks/:id', (req, res) => {
   })
 })
 
+app.get('/api/songaudiofeatures/:id', (req, res) => {
+  spotifyApi.getAudioFeaturesForTrack(req.params.id,
+    (err, data) => {
+      console.log(JSON.stringify(data))
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'))
 })

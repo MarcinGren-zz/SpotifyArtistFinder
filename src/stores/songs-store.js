@@ -22,10 +22,29 @@ class SongsStore {
   }
 
   @action
+  getSongAudioFeatures(songId) {
+    axios
+      .get(`/api/songaudiofeatures/${songId}`)
+      .then(response => {
+        const { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence } = response.data
+        Object.assign(this.songToDisplay, { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence })
+        // this.songToDisplay.acousticness = response.data.acousticness,
+        // this.songToDisplay.danceability = response.data.danceability,
+        // this.songToDisplay.energy = response.data.energy,
+        // this.songToDisplay.instrumentalness = response.data.instrumentalness,
+        // this.songToDisplay.liveness = response.data.liveness,
+        // this.songToDisplay.speechiness = response.data.speechiness,
+        // this.songToDisplay.valence = response.data.valence
+
+        // console.log(this.songToDisplay)
+      })
+  }
+
+  @action
   getClickedSong() {
     this.songToDisplay = this.albumTracks.find(song => song.id === this.clickedSong)
+    console.log('in songsstore.js getclickedsong')
     console.log(this.songToDisplay)
-    console.log(this.songToDisplay.previewUrl)
   }
 }
 
