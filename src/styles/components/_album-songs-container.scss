@@ -9,4 +9,9 @@
   transform: translateX(-50%);
   position: fixed;
   list-style: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "song-list song-info""song-list song-player"
 }

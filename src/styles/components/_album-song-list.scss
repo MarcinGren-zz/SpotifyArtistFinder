@@ -1,7 +1,9 @@
 // currently commented out, moved to asc
-// .asl__container {
+.asl__container {
 //   // width: 300px;
-//   // height: 300px;
+  height: 100px;
+  overflow: auto;
+  grid-area: song-list;
 //   z-index: 10;
 //   background-color: #3f3f3f;
 //   position: absolute;
@@ -10,4 +12,8 @@
 //   transform: translateX(-50%);
 //   position: fixed;
 //   list-style: none;
-// }
+}
+
+.asl__container li:nth-child(2n) {
+  background: white;
+}
