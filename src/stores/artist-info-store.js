@@ -25,7 +25,6 @@ class ArtistInfoStore {
     axios
       .get(`/api/findartist/${artistId}`)
       .then(response => {
-        console.log(JSON.stringify(response))
         this.artistInfo = {
           id: response.data.id,
           name: response.data.name,
@@ -57,14 +56,11 @@ class ArtistInfoStore {
     axios
       .get(`/api/relatedartists/${artistId}`)
       .then(response => {
-        console.log('response')
-        console.log(response)
         this.relatedArtists = response.data.artists.map(artist => ({
           id: artist.id,
           name: artist.name,
           img: artist.images['0'] ? artist.images['0'].url : notAvailableUrl
         }))
-        console.log(this.relatedArtists)
       })
   }
 }

@@ -8,29 +8,24 @@ import { observer } from 'mobx-react'
     // this.onSongClick = this.onSongClick.bind(this)
     // console.log(this.props.songsStore.getClickedSong())
     // this.state = {song: this.props.songsStore.getClickedSong()}
+    console.log('in song-player constructor')
     this.props.songsStore.getClickedSong()
   }
   
-  componentDidUpdate() {
+  componentWillReceiveProps() {
+    console.log('in song-player componentWillReceiveProps')
     this.props.songsStore.getClickedSong()
+    this.refs.player.pause()
+    this.refs.player.load()
   }
-
-
-  // onSongClick() {
-  //   this.props.songsStore.clickedSong = this.props.song.id
-  // }
 
   render() {
     const { songsStore } = this.props
 
     return (
-      <div>
-        {/* onClick={this.onSongClick}
-        className='s__list-item'
-      >
-        {song.name}
-        <br /> */}
-        <audio controls='controls' className='s__player'>
+      <div className='sp__container'>
+      {this.props.songsStore.songToDisplay.name}
+        <audio controls='controls' ref='player' className='sp__player'>
           <source src={this.props.songsStore.songToDisplay.previewUrl} type='audio/mpeg' />
         </audio>
       </div>

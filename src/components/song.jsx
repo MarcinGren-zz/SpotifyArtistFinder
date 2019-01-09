@@ -10,6 +10,7 @@ import { observer } from 'mobx-react'
 
   onSongClick() {
     this.props.songsStore.clickedSong = this.props.song.id
+    this.props.songsStore.getSongAudioFeatures(this.props.song.id)
   }
 
   render() {
