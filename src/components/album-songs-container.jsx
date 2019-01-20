@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import AlbumSongList from './album-song-list'
 import SongPlayer from './song-player'
+import SongInfo from './song-info'
 
 @observer class AlbumSongsContainer extends Component {
 
@@ -13,11 +14,14 @@ import SongPlayer from './song-player'
         <AlbumSongList 
           songsStore={songsStore}
         />
-        {songsStore.clickedSong ? (
+        {songsStore.clickedSong ? [
+          <SongInfo
+            songsStore={songsStore}
+          />,
           <SongPlayer
             songsStore={songsStore}
           />
-        ) : null}
+        ] : null}
       </div>
     )
   }
