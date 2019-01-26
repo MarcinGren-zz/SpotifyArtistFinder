@@ -11,6 +11,7 @@
   border: solid thin $border-color;
   padding: 5px;
   max-width: 162px;
+  background-color: $lighter-background;
 }
 
 .al__item-figure {
@@ -37,4 +38,5 @@
 .al__item-caption {
   text-align: center;
   padding-top: 3px;
+  color: $font-color;
 }

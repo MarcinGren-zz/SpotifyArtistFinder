@@ -24,9 +24,11 @@ import { observer } from 'mobx-react'
 
     return (
       <div className='sp__container'>
-      {this.props.songsStore.songToDisplay.name}
+        <span className='sp__song-name'>
+          {songsStore.songToDisplay.name}
+        </span>
         <audio controls='controls' ref='player' className='sp__player'>
-          <source src={this.props.songsStore.songToDisplay.previewUrl} type='audio/mpeg' />
+          <source src={songsStore.songToDisplay.previewUrl} type='audio/mpeg' />
         </audio>
       </div>
     )
