@@ -7,16 +7,19 @@ import ArtistAlbum from './artist-album'
     const { artistInfoStore, songsStore } = this.props
 
     return(
-      <ul className='aa__list'>
-        {artistInfoStore.artistsAlbums.map(album => (
-          <ArtistAlbum 
-            key={album.id}
-            album={album}
-            artistInfoStore={artistInfoStore}
-            songsStore={songsStore}
-          />
-        ))}
-      </ul>
+      <div className='aa__container'>
+        <span className='field-name'>Albums</span>
+        <ul className='aa__list'>
+          {artistInfoStore.artistsAlbums.map(album => (
+            <ArtistAlbum 
+              key={album.id}
+              album={album}
+              artistInfoStore={artistInfoStore}
+              songsStore={songsStore}
+            />
+          ))}
+        </ul>
+      </div>
     )
   }
 }
