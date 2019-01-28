@@ -8,7 +8,9 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "name name""popularity followers""genres genres""genres genres";
-  text-align: center;
+  // text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .ai__name {
@@ -20,11 +22,13 @@
 .ai__popularity {
   grid-area: popularity;
   font-size: 1.1em;
+  text-align: center;
 }
 
 .ai__followers {
   grid-area: followers;
   font-size: 1.1em;
+  text-align: center;
 }
 
 .ai__genres {

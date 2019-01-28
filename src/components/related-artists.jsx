@@ -7,14 +7,17 @@ import RelatedArtist from './related-artist'
     const { artistInfoStore } = this.props
 
     return(
-      <ul className='aa__list'>
-        {artistInfoStore.relatedArtists.map(artist =>  (
-          <RelatedArtist
-            key={artist.id}
-            artist={artist}
-            artistInfoStore={artistInfoStore}
-          />))}
-      </ul>
+      <div className='ra__field-name-container'>
+        <span className='field-name'>Related Artists</span>
+        <ul className='aa__list'>
+          {artistInfoStore.relatedArtists.map(artist =>  (
+            <RelatedArtist
+              key={artist.id}
+              artist={artist}
+              artistInfoStore={artistInfoStore}
+            />))}
+        </ul>
+      </div>
     )
   }
 }

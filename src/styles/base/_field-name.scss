@@ -6,3 +6,12 @@
   letter-spacing: 0.5em;
   border-bottom: 2px $even-lighter-background solid;
 }
+
+.field-name-container {
+  // display: grid;
+  width: 100%;
+}
+
+.ra__field-name-container {
+  width: 60%;
+}
