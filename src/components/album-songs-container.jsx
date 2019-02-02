@@ -5,12 +5,41 @@ import SongPlayer from './song-player'
 import SongInfo from './song-info'
 
 @observer class AlbumSongsContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.setWrapperRef = this.setWrapperRef.bind(this)
+    this.handleClickOutside = this.handleClickOutside.bind(this)
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside)
+  }
+
+  componentWillUnmount() {
+    document.addEventListener('mousedown', this.handleClickOutside)
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node
+  }
+
+  handleClickOutside() {
+    const { songsStore } = this.props
+
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      songsStore.displaySongs = false
+      songsStore.albumTracks = []
+      songsStore.clickedSong = ''
+      songsStore.songToDisplay = {}
+      console.log('clicked outside')
+    }
+  }
 
   render() {
     const { songsStore } = this.props
     
     return (
-      <div className='asc__container'>
+      <div ref={this.setWrapperRef} className='asc__container'>
         <AlbumSongList 
           songsStore={songsStore}
         />
