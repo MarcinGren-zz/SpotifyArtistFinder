@@ -68,6 +68,7 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
                   style={{ 
                     // tickLabels: { fill: "none" },
                     // labels: { fontSize: '18px' }
+                    tickLabels: { fill: '#CDB380'}
                   }}
                   axisValue={i}
                 />
@@ -75,7 +76,7 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
             })
           }
           <VictoryBar
-            style={{ data: { fill: "tomato", width: 25 } }}
+            style={{ data: { fill: 'tomato', width: 25 } }}
             data={sampleData}
             x='feature'
             y='value'

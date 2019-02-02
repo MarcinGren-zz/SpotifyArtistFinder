@@ -3,3 +3,10 @@
   justify-content: space-between;
   padding: 2px 4px;
 }
+
+.asl__container .s__list-item:hover,
+.asl__container .s__list-item:active {
+  background-color: $background;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
