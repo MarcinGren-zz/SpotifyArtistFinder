@@ -22,11 +22,11 @@ export default @observer class ArtistsContainer extends Component {
             songsStore={songsStore}
           />
         ) : null}
-        {songsStore.displaySongs ? (
+        {/* {songsStore.displaySongs ? (
           <AlbumSongsContainer
             songsStore={songsStore}
           />
-        ) : null}
+        ) : null} */}
       </div>
     )
   }

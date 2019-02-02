@@ -16,7 +16,7 @@ import SongInfo from './song-info'
   }
 
   componentWillUnmount() {
-    document.addEventListener('mousedown', this.handleClickOutside)
+    document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
   setWrapperRef(node) {
