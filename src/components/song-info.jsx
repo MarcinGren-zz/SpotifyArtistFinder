@@ -44,27 +44,21 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
           height={220}
         >
           {
-            sampleData.map((d, i) => {
-              console.log(sampleData)
-              console.log('d')
-              console.log(d)
-              console.log('i')
-              console.log(i)
-              return (
-                <VictoryPolarAxis
-                  key={d.feature}
-                  label={d.feature}
-                  labelPlacement="perpendicular"
-                  tickValues={[0.25, 0.5, 0.75, 1]}
-                  style={{ 
-                    // tickLabels: { fill: "none" },
-                    // labels: { fontSize: '18px' }
-                    tickLabels: { fill: '#CDB380'}
-                  }}
-                  axisValue={d.feature}
-                />
-              )
-            })
+            sampleData.map((d, i) => (
+              <VictoryPolarAxis
+                key={d.feature}
+                label={d.feature}
+                labelPlacement="perpendicular"
+                tickValues={[0.25, 0.5, 0.75, 1]}
+                style={{ 
+                  // tickLabels: { fill: "none" },
+                  // labels: { fontSize: '18px' }
+                  tickLabels: { fill: '#CDB380'}
+                }}
+                axisValue={i}
+              />
+            )
+            )
           }
           <VictoryBar
             style={{ 
