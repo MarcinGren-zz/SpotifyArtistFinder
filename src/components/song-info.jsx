@@ -44,9 +44,10 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
           height={220}
         >
           {
-            sampleData.map((d, i) => (
+            ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness',
+            'speechiness', 'valence'].map((d, i) => (
               <VictoryPolarAxis
-                key={d.feature}
+                key={i}
                 label={d.feature}
                 labelPlacement="perpendicular"
                 tickValues={[0.25, 0.5, 0.75, 1]}
