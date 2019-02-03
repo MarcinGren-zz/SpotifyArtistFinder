@@ -46,9 +46,11 @@ import SongInfo from './song-info'
         {songsStore.clickedSong ? [
           <SongInfo
             songsStore={songsStore}
+            key={0}
           />,
           <SongPlayer
             songsStore={songsStore}
+            key={1}
           />
         ] : null}
       </div>
