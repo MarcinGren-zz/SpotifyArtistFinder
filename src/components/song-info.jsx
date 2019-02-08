@@ -45,20 +45,19 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
         >
           {
             ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness',
-            'speechiness', 'valence'].map((d, i) => (
+            'speechiness', 'valence'].map((d) => (
               <VictoryPolarAxis 
                 dependentAxis={false}
                 standalone={false}
-                key={i}
+                key={d.feature}
                 label={d.feature}
                 labelPlacement="perpendicular"
-                tickValues={[0.25, 0.5, 0.75, 1]}
+                // tickValues={[0.25, 0.5, 0.75, 1]}
                 style={{ 
                   // tickLabels: { fill: "none" },
                   // labels: { fontSize: '18px' }
                   tickLabels: { fill: '#CDB380'}
                 }}
-                axisValue={i}
               />
             )
             )
