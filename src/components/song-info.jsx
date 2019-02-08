@@ -46,7 +46,9 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
           {
             ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness',
             'speechiness', 'valence'].map((d, i) => (
-              <VictoryPolarAxis
+              <VictoryPolarAxis 
+                dependentAxis={false}
+                standalone={false}
                 key={i}
                 label={d.feature}
                 labelPlacement="perpendicular"
