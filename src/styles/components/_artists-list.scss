@@ -40,3 +40,15 @@
   padding-top: 3px;
   color: $font-color;
 }
+
+@media (max-width: 480px) {
+  .al__list-item {
+    margin: 15px;
+    max-width: 137px;
+  }
+
+  .al__item-image {
+    height: 125px;
+    width: 125px;
+  }
+}
