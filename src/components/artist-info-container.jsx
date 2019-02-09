@@ -5,7 +5,16 @@ import ArtistInfo from './artist-info'
 import ArtistAlbums from './artist-albums'
 import RelatedArtists from './related-artists'
 
-export default @observer class ArtistsContainer extends Component {
+@observer class ArtistInfoContainer extends Component {
+
+  componentDidUpdate() {
+    document.getElementsByClassName('ai__container')[0].scrollIntoView({
+      alignToTop: true,
+      behavior: 'smooth',
+      block: 'start'
+    })
+    console.log('scroll')
+  }
 
   render() {
     const { artistInfoStore, artistsStore, songsStore } = this.props
@@ -34,4 +43,6 @@ export default @observer class ArtistsContainer extends Component {
       </div>
     )
   }
-}
+  }
+
+export default ArtistInfoContainer
