@@ -49,8 +49,8 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
               <VictoryPolarAxis 
                 dependentAxis={false}
                 standalone={false}
-                key={d.feature}
-                label={d.feature}
+                key={d}
+                label={d}
                 labelPlacement="perpendicular"
                 // tickValues={[0.25, 0.5, 0.75, 1]}
                 style={{ 
