@@ -9,7 +9,7 @@ export default @observer class ArtistInfo extends Component {
     return (
       <div className='field-name-container'>
         <span className='field-name'>Info</span>
-        <div className="ai__artists-grid metal">
+        <div className="ai__artists-grid">
           <div className="ai__name">
             <span>{artistInfoStore.artistInfo.name}</span>
           </div>

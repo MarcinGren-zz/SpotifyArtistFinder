@@ -46,3 +46,33 @@
 .ai__genre {
   font-size: 0.8em;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .ai__artists-grid {
+    margin-left: 0px;
+    border-radius: 0;
+    margin-bottom: 10px;
+  }
+  
+  .ai__name {
+    font-size: 1em;
+    text-align: left;
+  }
+  
+  .ai__popularity {
+    font-size: 0.8em;
+    text-align: left;
+  }
+  
+  .ai__followers {
+    font-size: 0.8em;
+    text-align: left;
+  }
+  
+  .ai__genres {
+    text-align: left;
+  }
+}
+
+@media (min-width: 480px) {
+}

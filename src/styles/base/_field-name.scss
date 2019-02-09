@@ -15,3 +15,14 @@
 .ra__field-name-container {
   width: 60%;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .field-name {
+    font-size: 1em;
+    letter-spacing: 0.25em;
+  }
+
+  .ra__field-name-container .field-name {
+    margin-left: 15px;
+  }
+}
