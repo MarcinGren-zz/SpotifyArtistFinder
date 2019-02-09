@@ -29,7 +29,12 @@ app.get('/api/artist/:name', (req, res) => {
     limit: 5
   }, (err, data) => {
     if (err) {
-      console.log(err)
+      if (err.status === 401) {
+        console.log('refreshed token')
+        saveAcessToken()
+      } else {
+        console.log(err)
+      }
     } else {
       res.send(data)
     }
@@ -40,7 +45,12 @@ app.get('/api/findartist/:name', (req, res) => {
   spotifyApi.getArtist(req.params.name,
     (err, data) => {
       if (err) {
-        console.log(err)
+        if (err.status === 401) {
+          console.log('refreshed token')
+          saveAcessToken()
+        } else {
+          console.log(err)
+        }
       } else {
         res.send(data)
       }
@@ -53,7 +63,12 @@ app.get('/api/artistalbums/:id', (req, res) => {
     market: 'PL' //might try a different way to obtain it in the future
   }, (err, data) => {
     if (err) {
-      console.log(err)
+      if (err.status === 401) {
+        console.log('refreshed token')
+        saveAcessToken()
+      } else {
+        console.log(err)
+      }
     } else {
       res.send(data)
     }
@@ -64,7 +79,12 @@ app.get('/api/relatedartists/:id', (req, res) => {
   spotifyApi.getArtistRelatedArtists(req.params.id,
     (err, data) => {
       if (err) {
-        console.log(err)
+        if (err.status === 401) {
+          console.log('refreshed token')
+          saveAcessToken()
+        } else {
+          console.log(err)
+        }
       } else {
         res.send(data)
       }
@@ -78,7 +98,12 @@ app.get('/api/albumtracks/:id', (req, res) => {
   },
   (err, data) => {
     if (err) {
-      console.log(err)
+      if (err.status === 401) {
+        console.log('refreshed token')
+        saveAcessToken()
+      } else {
+        console.log(err)
+      }
     } else {
       res.send(data)
     }
@@ -90,7 +115,12 @@ app.get('/api/songaudiofeatures/:id', (req, res) => {
     (err, data) => {
       console.log(JSON.stringify(data))
       if (err) {
-        console.log(err)
+        if (err.status === 401) {
+          console.log('refreshed token')
+          saveAcessToken()
+        } else {
+          console.log(err)
+        }
       } else {
         res.send(data)
       }
