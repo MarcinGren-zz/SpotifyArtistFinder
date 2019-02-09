@@ -47,7 +47,7 @@
   font-size: 0.8em;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 360px) and (max-width: 480px) {
   .ai__artists-grid {
     margin-left: 0px;
     border-radius: 0;
@@ -71,8 +71,38 @@
   
   .ai__genres {
     text-align: left;
+    grid-area: genres;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }
 
-@media (min-width: 480px) {
+@media (max-width: 360px) {
+  .ai__name {
+    font-size: 0.9em;
+    text-align: left;
+  }
+  
+  .ai__popularity {
+    font-size: 0.7em;
+    text-align: left;
+  }
+  
+  .ai__followers {
+    font-size: 0.7em;
+    text-align: left;
+  }
+  
+  .ai__genres {
+    text-align: left;
+    grid-area: genres;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .ai__genre {
+    font-size: 0.6em;
+  }
 }

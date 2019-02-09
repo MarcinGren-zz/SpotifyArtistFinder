@@ -16,7 +16,7 @@
   width: 60%;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 360px) and (max-width: 480px) {
   .field-name {
     font-size: 1em;
     letter-spacing: 0.25em;
@@ -24,5 +24,16 @@
 
   .ra__field-name-container .field-name {
     margin-left: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .field-name {
+    font-size: 1em;
+  }
+
+  .ra__field-name-container .field-name {
+    margin-left: 10px;
+    letter-spacing: 0.1em;
   }
 }
