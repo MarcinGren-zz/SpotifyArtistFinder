@@ -37,7 +37,8 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
 
     return (
       <div className='si__container'>
-        <VictoryChart polar
+        <VictoryChart 
+          polar
           theme={VictoryTheme.material}
           padding={30}
           width={220}
@@ -45,21 +46,22 @@ import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victor
         >
           {
             ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness',
-            'speechiness', 'valence'].map((d) => (
-              <VictoryPolarAxis 
-                dependentAxis={false}
-                standalone={false}
-                key={d}
-                label={d}
-                labelPlacement="perpendicular"
-                // tickValues={[0.25, 0.5, 0.75, 1]}
-                style={{ 
-                  // tickLabels: { fill: "none" },
-                  // labels: { fontSize: '18px' }
-                  tickLabels: { fill: '#CDB380'}
-                }}
-              />
-            )
+            'speechiness', 'valence'].map((d, i) => {
+              return (
+                <VictoryPolarAxis 
+                  key={i}
+                  label={d}
+                  labelPlacement="perpendicular"
+                  // tickValues={[0.25, 0.5, 0.75, 1]}
+                  style={{ 
+                    // tickLabels: { fill: "none" },
+                    // labels: { fontSize: '18px' }
+                    tickLabels: { fill: '#CDB380'}
+                  }}
+                  axisValue={i}
+                />
+              )
+            }
             )
           }
           <VictoryBar
