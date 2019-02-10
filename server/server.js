@@ -70,6 +70,7 @@ app.get('/api/artistalbums/:id', (req, res) => {
         console.log(err)
       }
     } else {
+      console.log(JSON.stringify(data))
       res.send(data)
     }
   })

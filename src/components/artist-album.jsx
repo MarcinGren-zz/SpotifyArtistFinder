@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import dayjs from 'dayjs'
 
 @observer class ArtistAlbum extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ import { observer } from 'mobx-react'
       >
         <figure className="aa__item-figure">
           <img src={album.img} className="aa__item-image" />
+          <figcaption className='aa__album-year'>{dayjs(album.releaseDate).format('YYYY')}</figcaption>
           <figcaption className="aa__item-caption">
             {album.name}
           </figcaption>
