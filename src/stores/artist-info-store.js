@@ -63,6 +63,11 @@ class ArtistInfoStore {
         }))
       })
   }
+
+  @action
+  getClickedAlbum(clickedAlbum) {
+    return this.artistsAlbums.find(album => album.id === clickedAlbum)
+  }
 }
 
 const artistInfoStore = new ArtistInfoStore()

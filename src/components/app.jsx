@@ -15,7 +15,7 @@ import '../styles/main.scss'
 
     return (
       <div>
-        <div className={`${songsStore.displaySongs ? 'faded-background' : null}`}>
+        <div className={`${songsStore.clickedAlbum ? 'faded-background' : null}`}>
           <Header />
           <SearchBox 
             artistsStore={artistsStore}
@@ -27,8 +27,9 @@ import '../styles/main.scss'
             songsStore={songsStore}
           />
         </div>
-        {songsStore.displaySongs ? (
+        {songsStore.clickedAlbum ? (
           <AlbumSongsContainer
+            artistInfoStore={artistInfoStore}
             songsStore={songsStore}
           />
         ) : null}

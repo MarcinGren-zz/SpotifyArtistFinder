@@ -27,7 +27,7 @@ import SongInfo from './song-info'
     const { songsStore } = this.props
 
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      songsStore.displaySongs = false
+      songsStore.clickedAlbum = ''
       songsStore.albumTracks = []
       songsStore.clickedSong = ''
       songsStore.songToDisplay = {}
@@ -36,11 +36,12 @@ import SongInfo from './song-info'
   }
 
   render() {
-    const { songsStore } = this.props
+    const { songsStore, artistInfoStore } = this.props
     
     return (
       <div ref={this.setWrapperRef} className='asc__container'>
         <AlbumSongList 
+          artistInfoStore={artistInfoStore}
           songsStore={songsStore}
         />
         {songsStore.clickedSong ? [

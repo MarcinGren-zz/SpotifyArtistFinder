@@ -1,10 +1,16 @@
-// currently commented out, moved to asc
 .asl__container {
-//   // width: 300px;
-  height: 280px;
-  overflow: auto;
-  grid-area: song-list;
   max-width: 300px;
+  height: 280px;
+  grid-area: song-list;
+}
+
+// currently commented out, moved to asc
+.asl__songs-container {
+//   // width: 300px;
+  height: 205px;
+  overflow: auto;
+  // grid-area: song-list;
+  // max-width: 300px;
 //   z-index: 10;
 //   background-color: #3f3f3f;
 //   position: absolute;
@@ -15,11 +21,11 @@
 //   list-style: none;
 }
 
-.asl__container li:nth-child(2n) {
+.asl__songs-container li:nth-child(2n) {
   background: $even-lighter-background;
 }
 
- .asl__container::-webkit-scrollbar-track
+.asl__songs-container::-webkit-scrollbar-track
  {
    -webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
    box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
@@ -27,16 +33,38 @@
    background-color: #F5F5F5;
  }
  
- .asl__container::-webkit-scrollbar
+.asl__songs-container::-webkit-scrollbar
  {
    width: 6px;
    background-color: #F5F5F5;
  }
  
- .asl__container::-webkit-scrollbar-thumb
+.asl__songs-container::-webkit-scrollbar-thumb
  {
    border-radius: 10px;
    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
    background-color: tomato;
  }
+
+.asl__album-header {
+  display: flex;
+  //not sure about opacity yet
+  opacity: 0.9;
+  border-bottom: 1px $background solid;
+  max-height: 75px;
+  //in case name is too long?
+  overflow: hidden;
+}
+
+.asl__album-img {
+  height: 75px;
+  width: 75px
+}
+
+.asl__album-name {
+  display: flex;
+  font-size: 0.8em;
+  align-items: center;
+  padding-left: 30px;
+}

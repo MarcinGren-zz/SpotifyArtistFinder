@@ -4,7 +4,7 @@ import axios from 'axios'
 class SongsStore {
 
   @observable albumTracks = []
-  @observable displaySongs = false
+  @observable clickedAlbum = ''
   @observable clickedSong = ''
   @observable songToDisplay = {}
 

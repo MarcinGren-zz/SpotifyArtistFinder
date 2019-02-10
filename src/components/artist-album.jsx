@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 
   onAlbumClick() {
     this.props.songsStore.getAlbumTracks(this.props.album.id)
-    this.props.songsStore.displaySongs = true
+    this.props.songsStore.clickedAlbum = this.props.album.id
   }
 
   render() {

@@ -29,7 +29,7 @@ class ArtistsStore {
 
   @action
   getClickedArtist(clickedArtist) {
-    return artistsStore.foundArtists.find(artist => artist.id === clickedArtist)
+    return this.foundArtists.find(artist => artist.id === clickedArtist)
   }
 }
 
