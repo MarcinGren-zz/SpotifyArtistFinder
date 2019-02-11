@@ -1,27 +1,25 @@
 require('dotenv').config()
 
-const express              = require('express'),
-      path                 = require('path'),
-      webpack              = require('webpack'),
-      cors                 = require('cors')
-      request              = require('request')
-      Spotify              = require('spotify-web-api-js'),
-      XMLHttpRequest       = require('xmlhttprequest').XMLHttpRequest,
-      webpackDevMiddleware = require('webpack-dev-middleware')
-      config               = require('../webpack.config'),
-      saveAcessToken       = require('./spotify-connector'),
-      
-      port       = process.env.PORT,
-      compiler   = webpack(config),
-      app        = express(),
-      spotifyApi = new Spotify()
+const express = require('express')
+const path = require('path')
+const webpack = require('webpack')
+const cors = require('cors')
+const Spotify = require('spotify-web-api-js')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const config = require('../webpack.config')
+const saveAcessToken = require('./spotify-connector')
+XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+
+const port = process.env.PORT
+const compiler = webpack(config)
+const app = express()
+const spotifyApi = new Spotify()
 
 app.use(cors())
 app.options('*', cors())
 // app.use(webpackDevMiddleware(compiler, {
 //   publicPath: config.output.publicPath
 // }))
-console.log(config.output.publicPath)
 
 app.use(express.static(config.output.publicPath))
 
@@ -33,7 +31,7 @@ app.get('/api/artist/:name', (req, res) => {
   }, (err, data) => {
     if (err) {
       if (err.status === 401) {
-        console.log('refreshed token')
+        console.log('token refreshed')
         saveAcessToken()
       } else {
         console.log(err)
@@ -49,7 +47,7 @@ app.get('/api/findartist/:name', (req, res) => {
     (err, data) => {
       if (err) {
         if (err.status === 401) {
-          console.log('refreshed token')
+          console.log('token refreshed')
           saveAcessToken()
         } else {
           console.log(err)
@@ -67,13 +65,12 @@ app.get('/api/artistalbums/:id', (req, res) => {
   }, (err, data) => {
     if (err) {
       if (err.status === 401) {
-        console.log('refreshed token')
+        console.log('token refreshed')
         saveAcessToken()
       } else {
         console.log(err)
       }
     } else {
-      console.log(JSON.stringify(data))
       res.send(data)
     }
   })
@@ -84,7 +81,7 @@ app.get('/api/relatedartists/:id', (req, res) => {
     (err, data) => {
       if (err) {
         if (err.status === 401) {
-          console.log('refreshed token')
+          console.log('token refreshed')
           saveAcessToken()
         } else {
           console.log(err)
@@ -103,7 +100,7 @@ app.get('/api/albumtracks/:id', (req, res) => {
   (err, data) => {
     if (err) {
       if (err.status === 401) {
-        console.log('refreshed token')
+        console.log('token refreshed')
         saveAcessToken()
       } else {
         console.log(err)
@@ -117,10 +114,9 @@ app.get('/api/albumtracks/:id', (req, res) => {
 app.get('/api/songaudiofeatures/:id', (req, res) => {
   spotifyApi.getAudioFeaturesForTrack(req.params.id,
     (err, data) => {
-      console.log(JSON.stringify(data))
       if (err) {
         if (err.status === 401) {
-          console.log('refreshed token')
+          console.log('token refreshed')
           saveAcessToken()
         } else {
           console.log(err)

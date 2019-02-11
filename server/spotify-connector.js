@@ -1,8 +1,15 @@
 require('dotenv').config()
-const request = require('request') // might change to axios
 
-const {CLIENT_ID, CLIENT_SECRET} = process.env,
-      CLIENT_CREDENTIALS = 'client_credentials'
+const request = require('request') // might change to axios
+const Spotify = require('spotify-web-api-js')
+
+const spotifyApi = new Spotify()
+
+const {
+  CLIENT_ID,
+  CLIENT_SECRET
+} = process.env
+const CLIENT_CREDENTIALS = 'client_credentials'
 
 const authOptions = {
   url: 'https://accounts.spotify.com/api/token',
@@ -18,7 +25,6 @@ const authOptions = {
 function obtainAccessToken(callback) {
   request.post(authOptions, (error, res, body) => {
     if (!error && res.statusCode === 200) {
-
       const token = body.access_token
       callback(null, token)
     }
@@ -27,7 +33,6 @@ function obtainAccessToken(callback) {
 
 function saveAcessToken() {
   obtainAccessToken((err, res) => {
-    // I don't think it's a great idea to have it here - might move this function to the main file
     spotifyApi.setAccessToken(res)
   })
 }
