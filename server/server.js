@@ -18,9 +18,12 @@ const express              = require('express'),
 
 app.use(cors())
 app.options('*', cors())
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
-}))
+// app.use(webpackDevMiddleware(compiler, {
+//   publicPath: config.output.publicPath
+// }))
+console.log(config.output.publicPath)
+
+app.use(express.static(config.output.publicPath))
 
 saveAcessToken() // Returns accessToken
 
@@ -126,6 +129,10 @@ app.get('/api/songaudiofeatures/:id', (req, res) => {
         res.send(data)
       }
     })
+})
+
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(path.join(__dirname, '../bundle.js'))
 })
 
 app.get('*', (req, res) => {
