@@ -28,7 +28,7 @@ app.use(express.static(config.output.publicPath))
 saveAcessToken() // Returns accessToken
 
 app.get('/api/artist/:name', (req, res) => {
-  spotifyApi.searchArtists(req.params.name, {
+  spotifyApi.searchArtists(`${req.params.name}*`, {
     limit: 5
   }, (err, data) => {
     if (err) {
