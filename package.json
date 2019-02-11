@@ -5,6 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "build": "webpack",
+    "prepare": "webpack",
+    "heroku-postbuild": "npm run build",
     "start": "node ./server/server.js"
   },
   "repository": {
