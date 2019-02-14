@@ -5,7 +5,7 @@ import ArtistInfo from './artist-info'
 import ArtistAlbums from './artist-albums'
 import RelatedArtists from './related-artists'
 
-@inject('artistsStore', 'artistInfoStore', 'songsStore')
+@inject('artistInfoStore')
 @observer class ArtistInfoContainer extends Component {
 
   componentDidUpdate() {
@@ -18,7 +18,7 @@ import RelatedArtists from './related-artists'
   }
 
   render() {
-    const { artistInfoStore, artistsStore, songsStore } = this.props
+    const { artistInfoStore } = this.props
 
     return (
       <div className='aic__container'>
@@ -31,8 +31,7 @@ import RelatedArtists from './related-artists'
           ) : null}
         </div>
         {artistInfoStore.relatedArtists.length > 0 ? (
-          <RelatedArtists
-          />
+          <RelatedArtists />
         ) : null}
       </div>
     )

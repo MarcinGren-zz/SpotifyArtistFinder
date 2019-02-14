@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 
 // move to be rendered from aritst-list-item and dont use store but maybe pass part of state as props
-@inject('artistsStore', 'artistInfoStore')
+@inject('artistInfoStore')
 @observer
 class ArtistInfo extends Component {
   render() {

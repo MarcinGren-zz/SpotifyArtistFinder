@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import ArtistsListItem from './artists-list-item'
 
-@inject('artistsStore', 'artistInfoStore')
+@inject('artistsStore')
 @observer
 class ArtistsList extends Component {
   render() {

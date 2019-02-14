@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import AlbumSongList from './album-song-list'
 import SongPlayer from './song-player'
 import SongInfo from './song-info'
 
+@inject('songsStore')
 @observer class AlbumSongsContainer extends Component {
   constructor(props) {
     super(props)
@@ -36,7 +37,7 @@ import SongInfo from './song-info'
   }
 
   render() {
-    const { songsStore, artistInfoStore } = this.props
+    const { songsStore } = this.props
     
     return (
       <div ref={this.setWrapperRef} className='asc__container'>

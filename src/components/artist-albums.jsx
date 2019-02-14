@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import ArtistAlbum from './artist-album'
 
-@inject('artistInfoStore', 'songsStore')
+@inject('artistInfoStore')
 @observer class AritstAlbums extends Component {
   render() {
-    const { artistInfoStore, songsStore } = this.props
+    const { artistInfoStore } = this.props
 
     return(
       <div className='field-name-container'>

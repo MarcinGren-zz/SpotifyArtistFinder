@@ -26,10 +26,7 @@ import '../styles/main.scss'
             <ArtistContainer />
           </div>
           {songsStore.clickedAlbum ? (
-            <AlbumSongsContainer
-              artistInfoStore={artistInfoStore}
-              songsStore={songsStore}
-            />
+            <AlbumSongsContainer />
           ) : null}
         </div>
       </Provider>

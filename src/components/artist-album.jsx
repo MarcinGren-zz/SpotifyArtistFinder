@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import dayjs from 'dayjs'
 
-@inject('artistInfoStore', 'songsStore')
+@inject('songsStore')
 @observer class ArtistAlbum extends Component {
   constructor(props) {
     super(props)
