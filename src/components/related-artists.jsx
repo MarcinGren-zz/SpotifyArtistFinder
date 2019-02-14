@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import RelatedArtist from './related-artist'
 
+@inject('artistInfoStore')
 @observer class RelatedArtists extends Component {
   render() {
     const { artistInfoStore } = this.props
@@ -14,7 +15,6 @@ import RelatedArtist from './related-artist'
             <RelatedArtist
               key={artist.id}
               artist={artist}
-              artistInfoStore={artistInfoStore}
             />))}
         </ul>
       </div>

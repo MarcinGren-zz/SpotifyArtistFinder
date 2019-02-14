@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
-export default @observer class ArtistsListInfo extends Component {
+@inject('artistInfoStore')
+@observer
+class ArtistsListItem extends Component {
   constructor(props) {
     super(props)
     this.onArtistClick = this.onArtistClick.bind(this)
@@ -9,7 +11,7 @@ export default @observer class ArtistsListInfo extends Component {
 
   onArtistClick() {
     const { artistInfoStore, artist } = this.props
-    
+
     artistInfoStore.clickedArtist = artist.id
     artistInfoStore.getArtistInfo(artistInfoStore.clickedArtist)
     artistInfoStore.displayInfo = true
@@ -29,11 +31,11 @@ export default @observer class ArtistsListInfo extends Component {
       >
         <figure className="al__item-figure">
           <img src={artist.img} className="al__item-image" />
-          <figcaption className="al__item-caption">
-            {artist.name}
-          </figcaption>
+          <figcaption className="al__item-caption">{artist.name}</figcaption>
         </figure>
       </li>
     )
   }
 }
+
+export default ArtistsListItem

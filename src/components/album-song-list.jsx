@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import Song from './song'
 
+@inject('artistInfoStore', 'songsStore')
 @observer class AlbumSongList extends Component {
   constructor(props) {
     super(props)
@@ -26,7 +27,6 @@ import Song from './song'
             <Song
               key={track.id}
               song={track}
-              songsStore={songsStore}
             />
           ))}
         </ul>

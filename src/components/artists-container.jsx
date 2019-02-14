@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import ArtistsList from './artists-list'
 import ArtistInfoContainer from './artist-info-container'
 import AlbumSongsContainer from './album-songs-container'
 
-export default @observer class ArtistsContainer extends Component {
-
+@inject('artistsStore', 'artistInfoStore', 'songsStore')
+@observer
+class ArtistsContainer extends Component {
   render() {
     const { artistsStore, artistInfoStore, songsStore } = this.props
 
     return (
       <div className="results">
-        <ArtistsList
-          artistsStore={artistsStore}
-          artistInfoStore={artistInfoStore}
-        />
+        <ArtistsList />
         {artistInfoStore.displayInfo ? (
-          <ArtistInfoContainer
-            artistsStore={artistsStore}
-            artistInfoStore={artistInfoStore}
-            songsStore={songsStore}
-          />
+          <ArtistInfoContainer />
         ) : null}
         {/* {songsStore.clickedAlbum ? (
           <AlbumSongsContainer
@@ -31,3 +25,5 @@ export default @observer class ArtistsContainer extends Component {
     )
   }
 }
+
+export default ArtistsContainer

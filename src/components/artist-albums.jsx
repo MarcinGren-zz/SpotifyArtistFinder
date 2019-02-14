@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import ArtistAlbum from './artist-album'
 
+@inject('artistInfoStore', 'songsStore')
 @observer class AritstAlbums extends Component {
   render() {
     const { artistInfoStore, songsStore } = this.props
@@ -14,8 +15,6 @@ import ArtistAlbum from './artist-album'
             <ArtistAlbum 
               key={album.id}
               album={album}
-              artistInfoStore={artistInfoStore}
-              songsStore={songsStore}
             />
           ))}
         </ul>

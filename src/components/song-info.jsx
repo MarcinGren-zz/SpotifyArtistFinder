@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victory'
 
+@inject('songsStore')
 @observer class SongInfo extends Component {
   constructor(props) {
     super(props)

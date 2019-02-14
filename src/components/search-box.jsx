@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
-export default @observer class SearchBox extends Component {
-
+@inject('artistsStore', 'artistInfoStore')
+@observer
+class SearchBox extends Component {
   onInputChange = event => {
     const searchedArtist = event.target.value
     this.props.artistsStore.getArtist(searchedArtist)
@@ -10,7 +11,6 @@ export default @observer class SearchBox extends Component {
   }
 
   render() {
-
     return (
       <div className="sb__input-container">
         <input
@@ -24,3 +24,5 @@ export default @observer class SearchBox extends Component {
     )
   }
 }
+
+export default SearchBox

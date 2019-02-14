@@ -40,17 +40,12 @@ import SongInfo from './song-info'
     
     return (
       <div ref={this.setWrapperRef} className='asc__container'>
-        <AlbumSongList 
-          artistInfoStore={artistInfoStore}
-          songsStore={songsStore}
-        />
+        <AlbumSongList />
         {songsStore.clickedSong ? [
           <SongInfo
-            songsStore={songsStore}
             key={0}
           />,
           <SongPlayer
-            songsStore={songsStore}
             key={1}
           />
         ] : null}

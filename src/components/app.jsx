@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, Provider } from 'mobx-react'
 import Header from './header'
 import SearchBox from './search-box'
 import ArtistContainer from './artists-container'
@@ -14,26 +14,25 @@ import '../styles/main.scss'
   render() {
 
     return (
-      <div>
-        <div className={`${songsStore.clickedAlbum ? 'faded-background' : null}`}>
-          <Header />
-          <SearchBox 
-            artistsStore={artistsStore}
-            artistInfoStore={artistInfoStore}  
-          />
-          <ArtistContainer
-            artistsStore={artistsStore}
-            artistInfoStore={artistInfoStore}
-            songsStore={songsStore}
-          />
+      <Provider 
+        artistsStore={artistsStore}
+        artistInfoStore={artistInfoStore}
+        songsStore={songsStore}
+      >
+        <div>
+          <div className={`${songsStore.clickedAlbum ? 'faded-background' : null}`}>
+            <Header />
+            <SearchBox />
+            <ArtistContainer />
+          </div>
+          {songsStore.clickedAlbum ? (
+            <AlbumSongsContainer
+              artistInfoStore={artistInfoStore}
+              songsStore={songsStore}
+            />
+          ) : null}
         </div>
-        {songsStore.clickedAlbum ? (
-          <AlbumSongsContainer
-            artistInfoStore={artistInfoStore}
-            songsStore={songsStore}
-          />
-        ) : null}
-      </div>
+      </Provider>
     )
   }
 }

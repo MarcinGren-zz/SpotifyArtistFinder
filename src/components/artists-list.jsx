@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import ArtistsListItem from './artists-list-item'
 
-export default @observer class ArtistsList extends Component {
-
+@inject('artistsStore', 'artistInfoStore')
+@observer
+class ArtistsList extends Component {
   render() {
     const { artistsStore } = this.props
 
@@ -13,10 +14,11 @@ export default @observer class ArtistsList extends Component {
           <ArtistsListItem
             key={artist.id}
             artist={artist}
-            artistInfoStore={this.props.artistInfoStore}
           />
         ))}
       </ul>
     )
   }
 }
+
+export default ArtistsList

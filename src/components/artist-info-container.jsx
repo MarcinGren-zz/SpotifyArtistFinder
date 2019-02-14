@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import ArtistsList from './artists-list'
 import ArtistInfo from './artist-info'
 import ArtistAlbums from './artist-albums'
 import RelatedArtists from './related-artists'
 
+@inject('artistsStore', 'artistInfoStore', 'songsStore')
 @observer class ArtistInfoContainer extends Component {
 
   componentDidUpdate() {
@@ -23,21 +24,14 @@ import RelatedArtists from './related-artists'
       <div className='aic__container'>
         <div className='ai__container'>
           {artistInfoStore.displayInfo ? (
-            <ArtistInfo
-              artistsStore={artistsStore}
-              artistInfoStore={artistInfoStore}
-            />
+            <ArtistInfo />
           ) : null}
           {artistInfoStore.artistsAlbums.length > 0 ? (
-            <ArtistAlbums
-              artistInfoStore={artistInfoStore}
-              songsStore={songsStore}
-            />
+            <ArtistAlbums />
           ) : null}
         </div>
         {artistInfoStore.relatedArtists.length > 0 ? (
           <RelatedArtists
-            artistInfoStore={artistInfoStore}
           />
         ) : null}
       </div>
