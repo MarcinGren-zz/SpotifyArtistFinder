@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import RelatedArtist from './related-artist'
+import RelatedArtist from './relatedartist/related-artist'
 
 @inject('artistInfoStore')
 @observer class RelatedArtists extends Component {

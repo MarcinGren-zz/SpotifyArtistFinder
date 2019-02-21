@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import ArtistsListItem from './artists-list-item'
+import ArtistsListItem from './artistslistitem/artists-list-item'
 
 @inject('artistsStore')
 @observer

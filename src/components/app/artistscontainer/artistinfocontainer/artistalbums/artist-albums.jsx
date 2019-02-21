@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import ArtistAlbum from './artist-album'
+import ArtistAlbum from './artistalbum/artist-album'
 
 @inject('artistInfoStore')
 @observer class AritstAlbums extends Component {

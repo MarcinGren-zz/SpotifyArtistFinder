@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import AlbumSongList from './album-song-list'
-import SongPlayer from './song-player'
-import SongInfo from './song-info'
+import AlbumSongList from './albumsonglist/album-song-list'
+import SongPlayer from './songplayer/song-player'
+import SongInfo from './songinfo/song-info'
 
 @inject('songsStore')
 @observer class AlbumSongsContainer extends Component {
