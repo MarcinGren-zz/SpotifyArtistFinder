@@ -9,6 +9,26 @@ class SongsStore {
   @observable songToDisplay = {}
 
   @action
+  updateAlbumTracks(value) {
+    this.albumTracks = value
+  }
+
+  @action
+  updateClickedAlbum(value) {
+    this.clickedAlbum = value
+  }
+
+  @action
+  updateClickedSong(value) {
+    this.clickedSong = value
+  }    
+
+  @action
+  updateSongToDisplay(value) {
+    this.songToDisplay = value
+  }
+
+  @action
   getAlbumTracks(albumId) {
     axios
       .get(`/api/albumtracks/${albumId}`)

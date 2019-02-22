@@ -13,6 +13,16 @@ class ArtistInfoStore {
   @observable relatedArtists = []
 
   @action
+  updateClickedArtist(value) {
+    this.clickedArtist = value
+  }
+
+  @action
+  updateDisplayInfo(value) {
+    this.displayInfo = value
+  }
+
+  @action
   getArtistInfo(artistId) {
     this.artistInfo = artistsStore.getClickedArtist(artistId)
     // Want to display only 6 genres tops

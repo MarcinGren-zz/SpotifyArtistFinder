@@ -7,7 +7,7 @@ class SearchBox extends Component {
   onInputChange = event => {
     const searchedArtist = event.target.value
     this.props.artistsStore.getArtist(searchedArtist)
-    this.props.artistInfoStore.displayInfo = false
+    this.props.artistInfoStore.updateDisplayInfo(false)
   }
 
   render() {

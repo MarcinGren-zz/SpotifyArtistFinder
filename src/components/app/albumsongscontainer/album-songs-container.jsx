@@ -28,10 +28,10 @@ import SongInfo from './songinfo/song-info'
     const { songsStore } = this.props
 
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      songsStore.clickedAlbum = ''
-      songsStore.albumTracks = []
-      songsStore.clickedSong = ''
-      songsStore.songToDisplay = {}
+      songsStore.updateClickedAlbum('')
+      songsStore.updateAlbumTracks([])
+      songsStore.updateClickedSong('')
+      songsStore.updateSongToDisplay({})
       console.log('clicked outside')
     }
   }

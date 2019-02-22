@@ -12,9 +12,9 @@ class ArtistsListItem extends Component {
   onArtistClick() {
     const { artistInfoStore, artist } = this.props
 
-    artistInfoStore.clickedArtist = artist.id
+    artistInfoStore.updateClickedArtist(artist.id)
     artistInfoStore.getArtistInfo(artistInfoStore.clickedArtist)
-    artistInfoStore.displayInfo = true
+    artistInfoStore.updateDisplayInfo(true)
 
     artistInfoStore.getArtistAlbums(artist.id)
     artistInfoStore.getRelatedArtists(artist.id)
