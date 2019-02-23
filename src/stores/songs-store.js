@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action } from 'mobx'
 import axios from 'axios'
 
 class SongsStore {
@@ -48,15 +48,6 @@ class SongsStore {
       .then(response => {
         const { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence } = response.data
         Object.assign(this.songToDisplay, { acousticness, danceability, energy, instrumentalness, liveness, speechiness, valence })
-        // this.songToDisplay.acousticness = response.data.acousticness,
-        // this.songToDisplay.danceability = response.data.danceability,
-        // this.songToDisplay.energy = response.data.energy,
-        // this.songToDisplay.instrumentalness = response.data.instrumentalness,
-        // this.songToDisplay.liveness = response.data.liveness,
-        // this.songToDisplay.speechiness = response.data.speechiness,
-        // this.songToDisplay.valence = response.data.valence
-
-        // console.log(this.songToDisplay)
       })
   }
 
@@ -71,8 +62,6 @@ class SongsStore {
   @action
   getClickedSong() {
     this.songToDisplay = this.albumTracks.find(song => song.id === this.clickedSong)
-    console.log('in songsstore.js getclickedsong')
-    console.log(this.songToDisplay)
   }
 }
 
