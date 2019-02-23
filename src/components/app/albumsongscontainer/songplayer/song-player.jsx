@@ -1,30 +1,30 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 
-@inject('songsStore')
+@inject('albumStore')
 @observer
 class SongPlayer extends Component {
   constructor(props) {
     super(props)
 
-    this.props.songsStore.getClickedSong()
+    this.props.albumStore.getClickedSong()
     this.playerRef = React.createRef()
   }
 
   componentWillReceiveProps() {
-    this.props.songsStore.getClickedSong()
+    this.props.albumStore.getClickedSong()
     this.playerRef.current.pause()
     this.playerRef.current.load()
   }
 
   render() {
-    const { songsStore } = this.props
+    const { albumStore } = this.props
 
     return (
       <div className="sp__container">
-        <span className="sp__song-name">{songsStore.songToDisplay.name}</span>
+        <span className="sp__song-name">{albumStore.songToDisplay.name}</span>
         <audio controls="controls" ref={this.playerRef} className="sp__player">
-          <source src={songsStore.songToDisplay.previewUrl} type="audio/mpeg" />
+          <source src={albumStore.songToDisplay.previewUrl} type="audio/mpeg" />
         </audio>
       </div>
     )

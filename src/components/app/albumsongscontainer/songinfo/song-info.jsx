@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victory'
 
-@inject('songsStore')
+@inject('albumStore')
 @observer
 class SongInfo extends Component {
   render() {
-    const { songsStore } = this.props
+    const { albumStore } = this.props
 
     const chartData = [
-      { feature: 'acousticness', value: songsStore.songToDisplay.acousticness },
-      { feature: 'danceability', value: songsStore.songToDisplay.danceability },
-      { feature: 'energy', value: songsStore.songToDisplay.energy },
-      { feature: 'instrumentalness', value: songsStore.songToDisplay.instrumentalness },
-      { feature: 'liveness', value: songsStore.songToDisplay.liveness },
-      { feature: 'speechiness', value: songsStore.songToDisplay.speechiness },
-      { feature: 'valence', value: songsStore.songToDisplay.valence }
+      { feature: 'acousticness', value: albumStore.songToDisplay.acousticness },
+      { feature: 'danceability', value: albumStore.songToDisplay.danceability },
+      { feature: 'energy', value: albumStore.songToDisplay.energy },
+      { feature: 'instrumentalness', value: albumStore.songToDisplay.instrumentalness },
+      { feature: 'liveness', value: albumStore.songToDisplay.liveness },
+      { feature: 'speechiness', value: albumStore.songToDisplay.speechiness },
+      { feature: 'valence', value: albumStore.songToDisplay.valence }
     ]
 
     return (

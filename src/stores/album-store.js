@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 import axios from 'axios'
 
-class SongsStore {
+class AlbumStore {
 
   @observable albumTracks = []
   @observable clickedAlbum = ''
@@ -52,7 +52,7 @@ class SongsStore {
   }
 
   @action
-  clearSongsStore() {
+  clearalbumStore() {
     this.updateClickedAlbum('')
     this.updateAlbumTracks([])
     this.updateClickedSong('')
@@ -65,6 +65,6 @@ class SongsStore {
   }
 }
 
-const songsStore = new SongsStore()
+const albumStore = new AlbumStore()
 
-export default songsStore
+export default albumStore

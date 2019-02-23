@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import Song from './song/song'
 
-@inject('artistInfoStore', 'songsStore')
+@inject('artistInfoStore', 'albumStore')
 @observer
 class AlbumSongList extends Component {
   constructor(props) {
     super(props)
 
-    const { artistInfoStore, songsStore } = this.props
+    const { artistInfoStore, albumStore } = this.props
     this.state = {
-      album: artistInfoStore.getClickedAlbum(songsStore.clickedAlbum)
+      album: artistInfoStore.getClickedAlbum(albumStore.clickedAlbum)
     }
   }
 
   render() {
-    const { songsStore } = this.props
+    const { albumStore } = this.props
     const { album } = this.state
 
     return (
@@ -25,7 +25,7 @@ class AlbumSongList extends Component {
           <figcaption className="asl__album-name">{album.name}</figcaption>
         </figure>
         <ul className="asl__songs-container">
-          {songsStore.albumTracks.map(track => (
+          {albumStore.albumTracks.map(track => (
             <Song key={track.id} song={track} />
           ))}
         </ul>

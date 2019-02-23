@@ -6,7 +6,7 @@ import ArtistsContainer from './artistscontainer/artists-container'
 import AlbumSongsContainer from './albumsongscontainer/album-songs-container'
 import artistsStore from '../../stores/artists-store'
 import artistInfoStore from '../../stores/artist-info-store'
-import songsStore from '../../stores/songs-store'
+import albumStore from '../../stores/album-store'
 import '../../styles/main.scss'
 
 @observer
@@ -16,15 +16,15 @@ class App extends Component {
       <Provider
         artistsStore={artistsStore}
         artistInfoStore={artistInfoStore}
-        songsStore={songsStore}
+        albumStore={albumStore}
       >
         <div>
-          <div className={`${songsStore.clickedAlbum ? 'faded-background' : null}`}>
+          <div className={`${albumStore.clickedAlbum ? 'faded-background' : null}`}>
             <Header />
             <SearchBox />
             <ArtistsContainer />
           </div>
-          {songsStore.clickedAlbum ? <AlbumSongsContainer /> : null}
+          {albumStore.clickedAlbum ? <AlbumSongsContainer /> : null}
         </div>
       </Provider>
     )

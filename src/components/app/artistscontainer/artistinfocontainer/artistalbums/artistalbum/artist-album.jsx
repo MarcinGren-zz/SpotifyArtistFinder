@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import dayjs from 'dayjs'
 
-@inject('songsStore')
+@inject('albumStore')
 @observer
 class ArtistAlbum extends Component {
   constructor(props) {
@@ -11,10 +11,10 @@ class ArtistAlbum extends Component {
   }
 
   onAlbumClick() {
-    const { songsStore, album } = this.props
+    const { albumStore, album } = this.props
 
-    songsStore.getAlbumTracks(album.id)
-    songsStore.updateClickedAlbum(album.id)
+    albumStore.getAlbumTracks(album.id)
+    albumStore.updateClickedAlbum(album.id)
   }
 
   render() {

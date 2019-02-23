@@ -4,11 +4,19 @@ import { observer, inject } from 'mobx-react'
 @inject('artistsStore', 'artistInfoStore')
 @observer
 class SearchBox extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      searchedArtist: ''
+    }
+  }
+
   onInputChange = event => {
     const { artistsStore, artistInfoStore } = this.props
 
-    const searchedArtist = event.target.value
-    artistsStore.getArtist(searchedArtist)
+    this.setState({ searchedArtist: event.target.value })
+    artistsStore.getArtist(this.state.searchedArtist)
     artistInfoStore.updateDisplayInfo(false)
   }
 
@@ -19,7 +27,7 @@ class SearchBox extends Component {
           className="sb__artist-input"
           type="text"
           name="artist"
-          value={this.searchedArtist}
+          value={this.state.searchedArtist}
           onChange={this.onInputChange}
         />
       </div>

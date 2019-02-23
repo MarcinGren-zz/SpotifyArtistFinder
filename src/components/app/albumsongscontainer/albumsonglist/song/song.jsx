@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 
-@inject('songsStore')
+@inject('albumStore')
 @observer
 class Song extends Component {
   constructor(props) {
@@ -11,9 +11,9 @@ class Song extends Component {
   }
 
   onSongClick() {
-    const { songsStore, song } = this.props
-    songsStore.updateClickedSong(song.id)
-    songsStore.getSongAudioFeatures(song.id)
+    const { albumStore, song } = this.props
+    albumStore.updateClickedSong(song.id)
+    albumStore.getSongAudioFeatures(song.id)
   }
 
   render() {
