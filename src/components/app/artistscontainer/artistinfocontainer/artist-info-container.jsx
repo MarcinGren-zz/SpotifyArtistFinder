@@ -7,8 +7,14 @@ import RelatedArtists from './relatedartists/related-artists'
 @inject('artistInfoStore')
 @observer
 class ArtistInfoContainer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.artistInfoRef = React.createRef()
+  }
+
   componentDidUpdate() {
-    document.getElementsByClassName('ai__container')[0].scrollIntoView({
+    this.artistInfoRef.current.scrollIntoView({
       alignToTop: true,
       behavior: 'smooth',
       block: 'start'
@@ -20,7 +26,7 @@ class ArtistInfoContainer extends Component {
 
     return (
       <div className="aic__container">
-        <div className="ai__container">
+        <div ref={this.artistInfoRef} className="ai__container">
           {artistInfoStore.displayInfo ? <ArtistInfo /> : null}
           {artistInfoStore.artistsAlbums.length > 0 ? <ArtistAlbums /> : null}
         </div>

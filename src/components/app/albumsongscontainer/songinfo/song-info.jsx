@@ -8,7 +8,7 @@ class SongInfo extends Component {
   render() {
     const { songsStore } = this.props
 
-    const sampleData = [
+    const chartData = [
       { feature: 'acousticness', value: songsStore.songToDisplay.acousticness },
       { feature: 'danceability', value: songsStore.songToDisplay.danceability },
       { feature: 'energy', value: songsStore.songToDisplay.energy },
@@ -27,19 +27,17 @@ class SongInfo extends Component {
           width={220}
           height={220}
         >
-          {['acousticness', 'danceability', 'energy', 'instrumentalness',
-            'liveness', 'speechiness', 'valence']
-            .map((d, i) => (
-              <VictoryPolarAxis
-                key={i}
-                label={d}
-                labelPlacement="perpendicular"
-                style={{
-                  tickLabels: { fill: '#CDB380' }
-                }}
-                axisValue={i}
-              />
-            ))}
+          {chartData.map((d, i) => (
+            <VictoryPolarAxis
+              key={i}
+              label={d.feature}
+              labelPlacement="perpendicular"
+              style={{
+                tickLabels: { fill: '#CDB380' }
+              }}
+              axisValue={i}
+            />
+          ))}
           <VictoryBar
             style={{
               data: {
@@ -47,7 +45,7 @@ class SongInfo extends Component {
                 width: 25
               }
             }}
-            data={sampleData}
+            data={chartData}
             x="feature"
             y="value"
           />

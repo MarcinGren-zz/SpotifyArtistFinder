@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { observer, inject } from 'mobx-react'
 import AlbumSongList from './albumsonglist/album-song-list'
 import SongPlayer from './songplayer/song-player'
@@ -39,9 +39,12 @@ class AlbumSongsContainer extends Component {
     return (
       <div ref={this.setWrapperRef} className="asc__container">
         <AlbumSongList />
-        {songsStore.clickedSong
-          ? [<SongInfo key={0} />, <SongPlayer key={1} />]
-          : null}
+        {songsStore.clickedSong ? (
+          <Fragment>
+            <SongInfo key={0} />
+            <SongPlayer key={1} />
+          </Fragment>
+        ) : null}
       </div>
     )
   }

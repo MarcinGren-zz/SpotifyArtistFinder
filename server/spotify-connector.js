@@ -31,10 +31,10 @@ function obtainAccessToken(callback) {
   })
 }
 
-function saveAcessToken() {
+function refreshAccessToken() {
   obtainAccessToken((err, res) => {
     spotifyApi.setAccessToken(res)
   })
 }
 
-module.exports = saveAcessToken
+module.exports = refreshAccessToken

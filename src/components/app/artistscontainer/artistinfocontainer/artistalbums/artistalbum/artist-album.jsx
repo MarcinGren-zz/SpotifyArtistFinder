@@ -21,13 +21,13 @@ class ArtistAlbum extends Component {
     const { album } = this.props
 
     return (
-      <li key={album.id} className="aa__list-item" onClick={this.onAlbumClick}>
-        <figure className="aa__item-figure">
+      <li key={album.id} className="iwc__list-item aa__list-item" onClick={this.onAlbumClick}>
+        <figure className="iwc__item-figure aa__item-figure">
           <img src={album.img} alt="Album Cover" className="aa__item-image" />
           <figcaption className="aa__album-year">
             {dayjs(album.releaseDate).format('YYYY')}
           </figcaption>
-          <figcaption className="aa__item-caption">{album.name}</figcaption>
+          <figcaption className="iwc__item-caption">{album.name}</figcaption>
         </figure>
       </li>
     )

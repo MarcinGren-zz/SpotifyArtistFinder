@@ -20,10 +20,10 @@ class RelatedArtist extends Component {
     const { artist } = this.props
 
     return (
-      <li key={artist.id} className="aa__list-item" onClick={this.handleClick}>
-        <figure className="aa__item-figure">
+      <li key={artist.id} className="iwc__list-item aa__list-item" onClick={this.handleClick}>
+        <figure className="iwc__item-figure aa__item-figure">
           <img src={artist.img} alt="Related Artist" className="aa__item-image" />
-          <figcaption className="aa__item-caption">{artist.name}</figcaption>
+          <figcaption className="iwc__item-caption">{artist.name}</figcaption>
         </figure>
       </li>
     )

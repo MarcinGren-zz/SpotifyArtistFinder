@@ -9,7 +9,7 @@ class ArtistsList extends Component {
     const { artistsStore } = this.props
 
     return (
-      <ul className="al__list">
+      <ul className="iwc__list">
         {artistsStore.foundArtists.map(artist => (
           <ArtistsListItem key={artist.id} artist={artist} />
         ))}

@@ -1,0 +1,31 @@
+.iwc__list {
+  list-style: none;
+  text-align: center;
+}
+
+.iwc__list-item {
+  display: inline-flex;
+  vertical-align: top;
+  border: solid thin $border-color;
+  padding: 5px;
+  background-color: $lighter-background;
+}
+
+.iwc__item-figure {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  flex: 0;
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 0.9;
+}
+
+.iwc__item-figure:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(0.95);
+}
+
+.iwc__item-caption {
+  text-align: center;
+}

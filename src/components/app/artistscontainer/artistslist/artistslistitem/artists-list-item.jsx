@@ -14,11 +14,10 @@ class ArtistsListItem extends Component {
     const { artistInfoStore, artist } = this.props
 
     artistInfoStore.updateClickedArtist(artist.id)
-    artistInfoStore.getArtistInfo(artistInfoStore.clickedArtist)
-    artistInfoStore.updateDisplayInfo(true)
-
+    artistInfoStore.getArtistInfo(artist.id)
     artistInfoStore.getArtistAlbums(artist.id)
     artistInfoStore.getRelatedArtists(artist.id)
+    artistInfoStore.updateDisplayInfo(true)
   }
 
   render() {
@@ -27,12 +26,12 @@ class ArtistsListItem extends Component {
     return (
       <li
         key={artist.id}
-        className="al__list-item"
+        className="iwc__list-item al__list-item"
         onClick={this.onArtistClick}
       >
-        <figure className="al__item-figure">
+        <figure className="iwc__item-figure al__item-figure">
           <img src={artist.img} alt="Artist" className="al__item-image" />
-          <figcaption className="al__item-caption">{artist.name}</figcaption>
+          <figcaption className="iwc__item-caption al__item-caption">{artist.name}</figcaption>
         </figure>
       </li>
     )

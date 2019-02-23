@@ -8,12 +8,13 @@ class SongPlayer extends Component {
     super(props)
 
     this.props.songsStore.getClickedSong()
+    this.playerRef = React.createRef()
   }
 
   componentWillReceiveProps() {
     this.props.songsStore.getClickedSong()
-    this.refs.player.pause()
-    this.refs.player.load()
+    this.playerRef.current.pause()
+    this.playerRef.current.load()
   }
 
   render() {
@@ -22,7 +23,7 @@ class SongPlayer extends Component {
     return (
       <div className="sp__container">
         <span className="sp__song-name">{songsStore.songToDisplay.name}</span>
-        <audio controls="controls" ref="player" className="sp__player">
+        <audio controls="controls" ref={this.playerRef} className="sp__player">
           <source src={songsStore.songToDisplay.previewUrl} type="audio/mpeg" />
         </audio>
       </div>

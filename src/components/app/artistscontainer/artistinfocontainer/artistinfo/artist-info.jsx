@@ -5,25 +5,30 @@ import { observer, inject } from 'mobx-react'
 @observer
 class ArtistInfo extends Component {
   render() {
-    const { artistInfoStore } = this.props
+    const {
+      name,
+      popularity,
+      followers,
+      genres
+    } = this.props.artistInfoStore.artistInfo
 
     return (
       <div className="field-name-container">
         <span className="field-name">Info</span>
         <div className="ai__artists-grid">
           <div className="ai__name">
-            <span>{artistInfoStore.artistInfo.name}</span>
+            <span>{name}</span>
           </div>
           <div className="ai__popularity">
             <span>Popularity: </span>
-            <span>{artistInfoStore.artistInfo.popularity}</span>
+            <span>{popularity}</span>
           </div>
           <div className="ai__followers">
             <span>Followers: </span>
-            <span>{artistInfoStore.artistInfo.followers}</span>
+            <span>{followers}</span>
           </div>
           <div className="ai__genres">
-            {artistInfoStore.artistInfo.genres.map(genre => (
+            {genres.map(genre => (
               <div key={genre} className="ai__genre">
                 {genre}
               </div>
