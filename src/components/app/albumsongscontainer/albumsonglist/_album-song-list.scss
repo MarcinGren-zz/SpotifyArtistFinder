@@ -4,52 +4,36 @@
   grid-area: song-list;
 }
 
-// currently commented out, moved to asc
 .asl__songs-container {
-//   // width: 300px;
   height: 205px;
   overflow: auto;
-  // grid-area: song-list;
-  // max-width: 300px;
-//   z-index: 10;
-//   background-color: #3f3f3f;
-//   position: absolute;
-//   top: 25%;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   position: fixed;
-//   list-style: none;
 }
 
 .asl__songs-container li:nth-child(2n) {
   background: $even-lighter-background;
 }
 
-.asl__songs-container::-webkit-scrollbar-track
- {
-   -webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
-   box-shadow: inset 0 0 12px rgba(0,0,0,0.2);
-   border-radius: 10px;
-   background-color: #F5F5F5;
- }
- 
-.asl__songs-container::-webkit-scrollbar
- {
-   width: 6px;
-   background-color: #F5F5F5;
- }
- 
-.asl__songs-container::-webkit-scrollbar-thumb
- {
-   border-radius: 10px;
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-   box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-   background-color: tomato;
- }
+.asl__songs-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: $scroll-background;
+}
+
+.asl__songs-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: $scroll-background;
+}
+
+.asl__songs-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: $scroll-color;
+}
 
 .asl__album-header {
   display: flex;
-  //not sure about opacity yet
   opacity: 0.9;
   border-bottom: 1px $background solid;
   max-height: 75px;

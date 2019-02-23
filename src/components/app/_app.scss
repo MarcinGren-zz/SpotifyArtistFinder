@@ -1,6 +1,6 @@
 .faded-background {
   z-index: 1;
-  background: black;
+  background: $faded-background;
   pointer-events: none;
   opacity: 0.2;
 }

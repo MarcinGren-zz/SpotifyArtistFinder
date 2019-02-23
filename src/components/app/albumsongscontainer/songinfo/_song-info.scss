@@ -3,6 +3,6 @@
 }
 
 .si__container > .VictoryContainer > svg {
-  //ugh
+  //ugh, don't like that !important but cannot really modify it without it I think
   height: min-content !important;
 }

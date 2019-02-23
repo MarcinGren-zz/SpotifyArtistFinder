@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import {
-  VictoryChart,
-  VictoryBar,
-  VictoryTheme,
-  VictoryPolarAxis
-} from 'victory'
+import { VictoryChart, VictoryBar, VictoryTheme, VictoryPolarAxis } from 'victory'
 
 @inject('songsStore')
 @observer

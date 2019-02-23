@@ -1,6 +1,4 @@
 .asc__container {
-  // width: 300px;
-  // height: 300px;
   z-index: 10;
   background-color: $lighter-background;
   position: absolute;
@@ -12,7 +10,6 @@
   color: $darker-font;
   display: grid;
   grid-template-columns: 300px 1fr;
-  // grid-template-rows: 1fr 1fr;
   grid-template-areas: "song-list song-info""song-list song-player"
 }
 
