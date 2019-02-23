@@ -1,8 +1,11 @@
 # SpotifyArtistFinder
-Look for your favourite artists in Spotify directory, find out their popularity and followers.
+Look for your favourite artists in Spotify directory, search their albums, find out their popularity and discover related artists. Check out their song previews and find out which of their songs is the best for dancing and which has the most accousticness.
 
 ## Link
 https://spotify-artist-finder.herokuapp.com/
+
+## Demo
+![alt text](https://media.giphy.com/media/9IZRalYv29LeqcyI41/giphy.gif)
 
 ## Setup
 - Spotify for Developers account is required - can be created at https://developer.spotify.com/dashboard/login
