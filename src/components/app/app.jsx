@@ -9,12 +9,11 @@ import artistInfoStore from '../../stores/artist-info-store'
 import songsStore from '../../stores/songs-store'
 import '../../styles/main.scss'
 
-@observer class App extends Component {
-  
+@observer
+class App extends Component {
   render() {
-
     return (
-      <Provider 
+      <Provider
         artistsStore={artistsStore}
         artistInfoStore={artistInfoStore}
         songsStore={songsStore}
@@ -25,9 +24,7 @@ import '../../styles/main.scss'
             <SearchBox />
             <ArtistsContainer />
           </div>
-          {songsStore.clickedAlbum ? (
-            <AlbumSongsContainer />
-          ) : null}
+          {songsStore.clickedAlbum ? <AlbumSongsContainer /> : null}
         </div>
       </Provider>
     )

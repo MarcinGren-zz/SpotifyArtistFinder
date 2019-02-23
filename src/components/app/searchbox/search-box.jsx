@@ -5,9 +5,11 @@ import { observer, inject } from 'mobx-react'
 @observer
 class SearchBox extends Component {
   onInputChange = event => {
+    const { artistsStore, artistInfoStore } = this.props
+
     const searchedArtist = event.target.value
-    this.props.artistsStore.getArtist(searchedArtist)
-    this.props.artistInfoStore.updateDisplayInfo(false)
+    artistsStore.getArtist(searchedArtist)
+    artistInfoStore.updateDisplayInfo(false)
   }
 
   render() {

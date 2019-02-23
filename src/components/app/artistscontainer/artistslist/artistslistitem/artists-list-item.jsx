@@ -6,6 +6,7 @@ import { observer, inject } from 'mobx-react'
 class ArtistsListItem extends Component {
   constructor(props) {
     super(props)
+
     this.onArtistClick = this.onArtistClick.bind(this)
   }
 
@@ -30,7 +31,7 @@ class ArtistsListItem extends Component {
         onClick={this.onArtistClick}
       >
         <figure className="al__item-figure">
-          <img src={artist.img} className="al__item-image" />
+          <img src={artist.img} alt="Artist" className="al__item-image" />
           <figcaption className="al__item-caption">{artist.name}</figcaption>
         </figure>
       </li>

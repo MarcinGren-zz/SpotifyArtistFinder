@@ -5,7 +5,8 @@ import SongPlayer from './songplayer/song-player'
 import SongInfo from './songinfo/song-info'
 
 @inject('songsStore')
-@observer class AlbumSongsContainer extends Component {
+@observer
+class AlbumSongsContainer extends Component {
   constructor(props) {
     super(props)
     this.setWrapperRef = this.setWrapperRef.bind(this)
@@ -28,28 +29,19 @@ import SongInfo from './songinfo/song-info'
     const { songsStore } = this.props
 
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      songsStore.updateClickedAlbum('')
-      songsStore.updateAlbumTracks([])
-      songsStore.updateClickedSong('')
-      songsStore.updateSongToDisplay({})
-      console.log('clicked outside')
+      songsStore.clearSongsStore()
     }
   }
 
   render() {
     const { songsStore } = this.props
-    
+
     return (
-      <div ref={this.setWrapperRef} className='asc__container'>
+      <div ref={this.setWrapperRef} className="asc__container">
         <AlbumSongList />
-        {songsStore.clickedSong ? [
-          <SongInfo
-            key={0}
-          />,
-          <SongPlayer
-            key={1}
-          />
-        ] : null}
+        {songsStore.clickedSong
+          ? [<SongInfo key={0} />, <SongPlayer key={1} />]
+          : null}
       </div>
     )
   }

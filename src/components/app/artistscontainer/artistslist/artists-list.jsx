@@ -11,10 +11,7 @@ class ArtistsList extends Component {
     return (
       <ul className="al__list">
         {artistsStore.foundArtists.map(artist => (
-          <ArtistsListItem
-            key={artist.id}
-            artist={artist}
-          />
+          <ArtistsListItem key={artist.id} artist={artist} />
         ))}
       </ul>
     )

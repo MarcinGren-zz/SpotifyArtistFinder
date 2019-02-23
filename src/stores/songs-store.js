@@ -61,6 +61,14 @@ class SongsStore {
   }
 
   @action
+  clearSongsStore() {
+    this.updateClickedAlbum('')
+    this.updateAlbumTracks([])
+    this.updateClickedSong('')
+    this.updateSongToDisplay({})
+  }
+
+  @action
   getClickedSong() {
     this.songToDisplay = this.albumTracks.find(song => song.id === this.clickedSong)
     console.log('in songsstore.js getclickedsong')

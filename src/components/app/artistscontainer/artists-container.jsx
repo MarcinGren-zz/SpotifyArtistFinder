@@ -12,14 +12,7 @@ class ArtistsContainer extends Component {
     return (
       <div className="results">
         <ArtistsList />
-        {artistInfoStore.displayInfo ? (
-          <ArtistInfoContainer />
-        ) : null}
-        {/* {songsStore.clickedAlbum ? (
-          <AlbumSongsContainer
-            songsStore={songsStore}
-          />
-        ) : null} */}
+        {artistInfoStore.displayInfo ? <ArtistInfoContainer /> : null}
       </div>
     )
   }
