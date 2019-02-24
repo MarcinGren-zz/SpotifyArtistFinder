@@ -1,8 +1,11 @@
 # SpotifyArtistFinder
-Look for your favourite artists in Spotify directory, find out their popularity and followers.
+Look for your favourite artists in Spotify directory, search their albums, find out their popularity and discover related artists. Check out their song previews and find out which of their songs is the best for dancing and which has the most accousticness.
 
 ## Link
 https://spotify-artist-finder.herokuapp.com/
+
+## Demo
+![alt text](https://media.giphy.com/media/9IZRalYv29LeqcyI41/giphy.gif)
 
 ## Setup
 - Spotify for Developers account is required - can be created at https://developer.spotify.com/dashboard/login
@@ -18,16 +21,14 @@ PORT = yourport
 ## To Be Done
 ### Technical
 - Add PropTypes
-- Add ReactRouter (to avoid using displayInfo)
 - Add RxJS (to improve http requests and to ensure that correct data is always received)
-- Media queries to improve mobile version
-- Might introduce Provider
+- Media queries to improve bigger desktops
+- Unit tests with jest + enzyme probably
 
-### New Functionality 
-Improving the style of existing Artist Info, addition of Artist's Albums and Related Artists as below
-![alt text](https://i.imgur.com/CkfAJmj.jpg)
+### Functional
+- Might want to inform users that song preview is not available as lots of songs don't have it as below
+![alt text](https://i.imgur.com/wkdamEz.png)
 
 ## Known Issues
-- Search box on mobile has right side cut off (using a media query to make it a bit smaller should fix it)
-- Possible for API to return the wrong data if the last request finishes earlier than others
-- Possible longer loading time from time to time (results from heroku entering sleep mode after which node.js server needs to start from scratch)
+- Possible for API to return the wrong data if the last request finishes earlier than others (should be solved by RxJS
+- Possible longer loading time from time to time (results from heroku entering sleep mode)
