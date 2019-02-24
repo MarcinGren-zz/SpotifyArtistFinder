@@ -29,7 +29,7 @@ refreshAccessToken() // Returns accessToken
 function errorHandler(err) {
   if (err.status === 401) {
     console.log('token refreshed')
-    saveAcessToken()
+    refreshAccessToken()
   } else {
     console.log(err)
   }
