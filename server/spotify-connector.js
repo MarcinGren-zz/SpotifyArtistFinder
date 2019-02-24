@@ -1,40 +1,44 @@
-require('dotenv').config()
-
 const request = require('request') // might change to axios
-const Spotify = require('spotify-web-api-js')
 
-const spotifyApi = new Spotify()
-
-const {
-  CLIENT_ID,
-  CLIENT_SECRET
-} = process.env
 const CLIENT_CREDENTIALS = 'client_credentials'
 
-const authOptions = {
-  url: 'https://accounts.spotify.com/api/token',
-  headers: {
-    'Authorization': `Basic ${Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
-  },
-  form: {
-    grant_type: CLIENT_CREDENTIALS
-  },
-  json: true
-}
+class SpotifyConnector {
 
-function obtainAccessToken(callback) {
-  request.post(authOptions, (error, res, body) => {
-    if (!error && res.statusCode === 200) {
-      const token = body.access_token
-      callback(null, token)
+  constructor(Config, SpotifyApi) {
+    this.Config = Config
+    this.SpotifyApi = SpotifyApi
+
+    this.authOptions = {
+      url: 'https://accounts.spotify.com/api/token',
+      headers: {
+        'Authorization': `Basic ${Buffer.from(`${this.Config.spotifyAuth.clientId}:${this.Config.spotifyAuth.clientSecret}`).toString('base64')}`
+      },
+      form: {
+        grant_type: CLIENT_CREDENTIALS
+      },
+      json: true
     }
-  })
+    this.refreshAccessToken()
+  }
+
+  getApi() {
+    return this.SpotifyApi
+  }
+
+  obtainAccessToken(callback) {
+    request.post(this.authOptions, (error, res, body) => {
+      if (!error && res.statusCode === 200) {
+        this.token = body.access_token
+        callback(null, this.token)
+      }
+    })
+  }
+
+  refreshAccessToken() {
+    this.obtainAccessToken((err, res) => {
+      this.SpotifyApi.setAccessToken(res)
+    })
+  }
 }
 
-function refreshAccessToken() {
-  obtainAccessToken((err, res) => {
-    spotifyApi.setAccessToken(res)
-  })
-}
-
-module.exports = refreshAccessToken
+module.exports = SpotifyConnector

@@ -7,7 +7,7 @@
     "build": "webpack",
     "prepare": "webpack",
     "heroku-postbuild": "npm run build",
-    "start": "node ./server/server.js"
+    "start": "node ./server/starting-script.js"
   },
   "repository": {
     "type": "git",
