@@ -21,6 +21,7 @@ PORT = yourport
 ## To Be Done
 ### Technical
 - Add PropTypes
+- Change bindings from constructor to class property
 - Add RxJS (to improve http requests and to ensure that correct data is always received)
 - Media queries to improve bigger desktops
 - Unit tests with jest + enzyme probably

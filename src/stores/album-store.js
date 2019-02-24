@@ -52,7 +52,7 @@ class AlbumStore {
   }
 
   @action
-  clearalbumStore() {
+  clear() {
     this.updateClickedAlbum('')
     this.updateAlbumTracks([])
     this.updateClickedSong('')

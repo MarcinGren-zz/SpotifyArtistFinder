@@ -29,7 +29,7 @@ class AlbumSongsContainer extends Component {
     const { albumStore } = this.props
 
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      albumStore.clearalbumStore()
+      albumStore.clear()
     }
   }
 
