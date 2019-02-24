@@ -21,10 +21,6 @@ class SpotifyConnector {
     this.refreshAccessToken()
   }
 
-  getApi() {
-    return this.SpotifyApi
-  }
-
   obtainAccessToken(callback) {
     request.post(this.authOptions, (error, res, body) => {
       if (!error && res.statusCode === 200) {
