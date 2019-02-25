@@ -33,6 +33,7 @@ PORT = yourport
 ### Functional
 - Might want to inform users that song preview is not available as lots of songs don't have it as below
 ![alt text](https://i.imgur.com/wkdamEz.png)
+- Scrollbar might not look as good since ::webkit-scrollbar isn't widely supported
 
 ## Known Issues
 - Possible for API to return the wrong data if the last request finishes earlier than others (should be solved by RxJS
