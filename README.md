@@ -1,6 +1,10 @@
 # SpotifyArtistFinder
 Look for your favourite artists in Spotify directory, search their albums, find out their popularity and discover related artists. Check out their song previews and find out which of their songs is the best for dancing and which has the most accousticness.
 
+**Longer loading time for the first open sometimes due to Heroku entering sleep mode after some time of inactivity (takes a few seconds)**
+
+**If no results are returned immediately, the token might be refreshing since Spotify Access Tokens last an hour (also takes a few seconds)**
+
 ## Link
 https://spotify-artist-finder.herokuapp.com/
 
