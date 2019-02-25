@@ -1,0 +1,26 @@
+.sp__container {
+  grid-area: song-player;
+  text-align: center;
+  font-size: 10px;
+}
+
+.sp__player {
+  height: 20px;
+  margin: 5px;
+}
+
+.sp__song-name {
+  display: block;
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .sp__player {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sp__player {
+    max-width: 180px;
+  }
+}

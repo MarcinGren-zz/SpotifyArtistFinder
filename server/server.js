@@ -1,63 +1,128 @@
-require('dotenv').config()
+global.XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
-const express              = require('express'),
-      path                 = require('path'),
-      webpack              = require('webpack'),
-      cors                 = require('cors')
-      request              = require('request')
-      Spotify              = require('spotify-web-api-js'),
-      XMLHttpRequest       = require('xmlhttprequest').XMLHttpRequest,
-      webpackDevMiddleware = require('webpack-dev-middleware')
-      config               = require('../webpack.config'),
-      saveAcessToken       = require('./spotify-connector'),
-      
-      port       = process.env.PORT,
-      compiler   = webpack(config),
-      app        = express(),
-      spotifyApi = new Spotify()
+const express = require('express')
+const path = require('path')
+const webpack = require('webpack')
+const cors = require('cors')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const config = require('../webpack.config')
 
-app.use(cors())
-app.options('*', cors())
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
-}))
+const compiler = webpack(config)
 
-saveAcessToken() // Returns accessToken
-
-app.get('/api/artist/:name', (req, res) => {
-  spotifyApi.searchArtists(req.params.name, {
-    limit: 5
-  }, (err, data) => {
-    console.log(data)
-    if (err) {
-      console.log(err)
-    } else {
-      res.send(data)
-    }
-  })
-})
-
-// To be reused for getting artist's albums / related artists
-// app.get('/api/artistinfo/:id', (req, res) => {
-//   spotifyApi.getArtist(req.params.id,
-//     (err, data) => {
-//       console.log(data)
-//       if (err) {
-//         console.log(err)
-//       } else {
-//         res.send(data)
-//       }
-//     })
-// })
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../src/index.html'))
-})
-
-app.listen(port, (err) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('server running')
+class Server {
+  constructor(Config, SpotifyConnector) {
+    this.config = Config
+    this.spotifyConnector = SpotifyConnector
+    this.spotifyApi = this.spotifyConnector.getSpotifyApi()
   }
-})
+      
+  errorHandler(err) {
+    if (err.status === 401) {
+      console.log('token refreshed')
+      this.spotifyConnector.setNewAccessToken()
+    } else {
+      console.log(err)
+    }
+  }
+
+  initServer() {
+    this.app = express()
+    this.app.use(cors())
+    this.app.options('*', cors())
+    // app.use(webpackDevMiddleware(compiler, {
+    //   publicPath: config.output.publicPath
+    // }))
+    
+    this.app.use(express.static(config.output.publicPath))
+    
+    this.app.get('/api/artist/:name', (req, res) => {
+      this.spotifyApi.searchArtists(`${req.params.name}*`, {
+        limit: 5
+      }, (err, data) => {
+        if (err) {
+          this.errorHandler(err)
+        } else {
+          res.send(data)
+        }
+      })
+    })
+    
+    this.app.get('/api/findartist/:name', (req, res) => {
+      this.spotifyApi.getArtist(req.params.name,
+        (err, data) => {
+          if (err) {
+            this.errorHandler(err)
+          } else {
+            res.send(data)
+          }
+        })
+    })
+    
+    this.app.get('/api/artistalbums/:id', (req, res) => {
+      this.spotifyApi.getArtistAlbums(req.params.id, {
+        include_groups: 'album,single',
+        market: 'PL' //might try a different way to obtain it in the future
+      }, (err, data) => {
+        if (err) {
+          this.errorHandler(err)
+        } else {
+          res.send(data)
+        }
+      })
+    })
+    
+    this.app.get('/api/relatedartists/:id', (req, res) => {
+      this.spotifyApi.getArtistRelatedArtists(req.params.id,
+        (err, data) => {
+          if (err) {
+            this.errorHandler(err)
+          } else {
+            res.send(data)
+          }
+        })
+    })
+    
+    //gonna DRY the requests i think as they're quite similar
+    this.app.get('/api/albumtracks/:id', (req, res) => {
+      this.spotifyApi.getAlbumTracks(req.params.id, {
+        market: 'PL'
+      },
+      (err, data) => {
+        if (err) {
+          this.errorHandler(err)
+        } else {
+          res.send(data)
+        }
+      })
+    })
+    
+    this.app.get('/api/songaudiofeatures/:id', (req, res) => {
+      this.spotifyApi.getAudioFeaturesForTrack(req.params.id,
+        (err, data) => {
+          if (err) {
+            this.errorHandler(err)
+          } else {
+            res.send(data)
+          }
+        })
+    })
+    
+    this.app.get('/bundle.js', (req, res) => {
+      res.sendFile(path.join(__dirname, '../bundle.js'))
+    })
+    
+    this.app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../src/index.html'))
+    })
+    
+    this.app.listen(this.config.httpServer.port, (err) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('server running')
+      }
+    })
+  }
+}
+
+module.exports = Server

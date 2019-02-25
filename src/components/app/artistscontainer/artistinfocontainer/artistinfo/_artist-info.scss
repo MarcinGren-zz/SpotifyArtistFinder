@@ -1,0 +1,107 @@
+.ai__container {
+  width: 40%;
+  color: $font-color;
+}
+
+.ai__artists-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "name name""popularity followers""genres genres""genres genres";
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: $lighter-background;
+  opacity: 0.9;
+  border-radius: 4em;
+}
+
+.ai__name {
+  grid-area: name;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.ai__popularity {
+  grid-area: popularity;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.ai__followers {
+  grid-area: followers;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.ai__genres {
+  grid-area: genres;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+}
+
+.ai__genre {
+  font-size: 0.8em;
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .ai__artists-grid {
+    margin-left: 0px;
+    border-radius: 0;
+    margin-bottom: 10px;
+  }
+  
+  .ai__name {
+    font-size: 1em;
+    text-align: left;
+  }
+  
+  .ai__popularity {
+    font-size: 0.8em;
+    text-align: left;
+  }
+  
+  .ai__followers {
+    font-size: 0.8em;
+    text-align: left;
+  }
+  
+  .ai__genres {
+    text-align: left;
+    grid-area: genres;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .ai__name {
+    font-size: 0.9em;
+    text-align: left;
+  }
+  
+  .ai__popularity {
+    font-size: 0.7em;
+    text-align: left;
+  }
+  
+  .ai__followers {
+    font-size: 0.7em;
+    text-align: left;
+  }
+  
+  .ai__genres {
+    text-align: left;
+    grid-area: genres;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .ai__genre {
+    font-size: 0.6em;
+  }
+}

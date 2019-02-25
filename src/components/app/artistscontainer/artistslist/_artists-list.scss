@@ -1,0 +1,42 @@
+// .al__list {
+//   list-style: none;
+//   text-align: center;
+// }
+
+.al__list-item {
+  margin: 30px;
+  margin-bottom: 10px;
+  max-width: 162px;
+}
+
+.al__item-figure {
+  font-size: 13px;
+}
+
+// .al__item-figure:hover {
+//   cursor: pointer;
+//   opacity: 1;
+//   transform: scale(0.95);
+// }
+
+.al__item-image {
+  height: 150px;
+  width: 150px;
+}
+
+.al__item-caption {
+  padding-top: 3px;
+  color: $font-color;
+}
+
+@media (max-width: 480px) {
+  .al__list-item {
+    margin: 15px;
+    max-width: 137px;
+  }
+
+  .al__item-image {
+    height: 125px;
+    width: 125px;
+  }
+}

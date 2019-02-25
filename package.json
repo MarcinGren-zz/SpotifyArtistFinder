@@ -5,7 +5,9 @@
   "main": "index.jsx",
   "scripts": {
     "build": "webpack",
-    "start": "node ./server/server.js"
+    "prepare": "webpack",
+    "heroku-postbuild": "npm run build",
+    "start": "node ./server/starting-script.js"
   },
   "repository": {
     "type": "git",
@@ -41,11 +43,14 @@
     "prettier-eslint-cli": "^4.7.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser": "3.16.1",
+    "terser-webpack-plugin": "1.2.2",
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.4",
+    "dayjs": "^1.8.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "mobx": "^5.5.2",
@@ -53,9 +58,9 @@
     "node-static": "^0.7.11",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-router": "^4.3.1",
     "request": "^2.88.0",
     "spotify-web-api-js": "^1.1.1",
+    "victory": "31.1.0",
     "webpack": "^4.24.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",

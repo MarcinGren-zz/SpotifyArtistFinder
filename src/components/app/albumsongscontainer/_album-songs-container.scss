@@ -1,0 +1,30 @@
+.asc__container {
+  z-index: 10;
+  background-color: $lighter-background;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  list-style: none;
+  color: $darker-font;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: "song-list song-info""song-list song-player"
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .asc__container {
+    display: block;
+    top: 5%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 360px) {
+  .asc__container {
+    display: block;
+    top: 2%;
+    max-width: 200px;
+  }
+}

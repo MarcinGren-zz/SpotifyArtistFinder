@@ -1,11 +1,22 @@
 @import 'abstracts/_variables.scss';
 
+@import 'base/_field-name.scss';
+@import 'base/_links.scss';
 @import 'base/_typography.scss';
+@import 'base/_item-w-cover.scss';
 
-@import 'components/_artists-list.scss';
-@import 'components/_search-box.scss';
-@import 'components/_artist-info.scss';
-
-@import '/layout/_header.scss';
+@import '../components/app/_app.scss';
+@import '../components/app/header/_header.scss';
+@import '../components/app/searchbox/_search-box.scss';
+@import '../components/app/albumsongscontainer/_album-songs-container.scss';
+@import '../components/app/albumsongscontainer/songinfo/_song-info.scss';
+@import '../components/app/albumsongscontainer/songplayer/_song-player.scss';
+@import '../components/app/albumsongscontainer/albumsonglist/_album-song-list.scss';
+@import '../components/app/albumsongscontainer/albumsonglist/song/_song.scss';
+@import '../components/app/artistscontainer/artistslist/_artists-list.scss';
+@import '../components/app/artistscontainer/artistinfocontainer/_artist-info-container.scss';
+@import '../components/app/artistscontainer/artistinfocontainer/artistinfo/_artist-info.scss';
+@import '../components/app/artistscontainer/artistinfocontainer/artistalbums/_artist-albums.scss';
+@import '../components/app/artistscontainer/artistinfocontainer/artistalbums/artistalbum/_artist-album.scss';
 
 @import 'pages/_home.scss'

@@ -1,9 +1,14 @@
+const TerserPlugin = require('terser-webpack-plugin')
+
 module.exports = {
   entry: ['./src/index.jsx'],
   output: {
     path: __dirname,
     publicPath: '/',
     filename: 'bundle.js'
+  },
+  optimization: {
+    minimizer: [new TerserPlugin()],
   },
   module: {
     rules: [{
@@ -15,8 +20,8 @@ module.exports = {
     },
     {
     // test:/\.(s*)css$/,
-    test: /\.scss$/,
-    use:['style-loader', 'css-loader', 'sass-loader']
+      test: /\.scss$/,
+      use:['style-loader', 'css-loader', 'sass-loader']
     }]
   },
   resolve: {
