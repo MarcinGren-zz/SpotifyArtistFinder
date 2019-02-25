@@ -1,38 +1,35 @@
-const request = require('request') // might change to axios
+const request = require('request')
 
 const CLIENT_CREDENTIALS = 'client_credentials'
 
 class SpotifyConnector {
 
   constructor(Config, SpotifyApi) {
-    this.Config = Config
-    this.SpotifyApi = SpotifyApi
+    this.config = Config
+    this.spotifyApi = SpotifyApi
 
     this.authOptions = {
       url: 'https://accounts.spotify.com/api/token',
       headers: {
-        'Authorization': `Basic ${Buffer.from(`${this.Config.spotifyAuth.clientId}:${this.Config.spotifyAuth.clientSecret}`).toString('base64')}`
+        'Authorization': `Basic ${Buffer.from(`${this.config.spotifyAuth.clientId}:${this.config.spotifyAuth.clientSecret}`).toString('base64')}`
       },
       form: {
         grant_type: CLIENT_CREDENTIALS
       },
       json: true
     }
-    this.refreshAccessToken()
+    this.setNewAccessToken()
   }
 
-  obtainAccessToken(callback) {
+  getSpotifyApi() {
+    return this.spotifyApi
+  }
+
+  setNewAccessToken() {
     request.post(this.authOptions, (error, res, body) => {
       if (!error && res.statusCode === 200) {
-        this.token = body.access_token
-        callback(null, this.token)
+        this.spotifyApi.setAccessToken(body.access_token)
       }
-    })
-  }
-
-  refreshAccessToken() {
-    this.obtainAccessToken((err, res) => {
-      this.SpotifyApi.setAccessToken(res)
     })
   }
 }

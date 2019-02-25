@@ -11,14 +11,15 @@ const compiler = webpack(config)
 
 class Server {
   constructor(Config, SpotifyConnector) {
-    this.Config = Config
-    this.SpotifyConnector = SpotifyConnector
+    this.config = Config
+    this.spotifyConnector = SpotifyConnector
+    this.spotifyApi = this.spotifyConnector.getSpotifyApi()
   }
       
   errorHandler(err) {
     if (err.status === 401) {
       console.log('token refreshed')
-      this.SpotifyConnector.refreshAccessToken()
+      this.spotifyConnector.setNewAccessToken()
     } else {
       console.log(err)
     }
@@ -33,10 +34,9 @@ class Server {
     // }))
     
     this.app.use(express.static(config.output.publicPath))
-    this.SpotifyConnector.refreshAccessToken()
     
     this.app.get('/api/artist/:name', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.searchArtists(`${req.params.name}*`, {
+      this.spotifyApi.searchArtists(`${req.params.name}*`, {
         limit: 5
       }, (err, data) => {
         if (err) {
@@ -48,7 +48,7 @@ class Server {
     })
     
     this.app.get('/api/findartist/:name', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.getArtist(req.params.name,
+      this.spotifyApi.getArtist(req.params.name,
         (err, data) => {
           if (err) {
             this.errorHandler(err)
@@ -59,7 +59,7 @@ class Server {
     })
     
     this.app.get('/api/artistalbums/:id', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.getArtistAlbums(req.params.id, {
+      this.spotifyApi.getArtistAlbums(req.params.id, {
         include_groups: 'album,single',
         market: 'PL' //might try a different way to obtain it in the future
       }, (err, data) => {
@@ -72,7 +72,7 @@ class Server {
     })
     
     this.app.get('/api/relatedartists/:id', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.getArtistRelatedArtists(req.params.id,
+      this.spotifyApi.getArtistRelatedArtists(req.params.id,
         (err, data) => {
           if (err) {
             this.errorHandler(err)
@@ -84,7 +84,7 @@ class Server {
     
     //gonna DRY the requests i think as they're quite similar
     this.app.get('/api/albumtracks/:id', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.getAlbumTracks(req.params.id, {
+      this.spotifyApi.getAlbumTracks(req.params.id, {
         market: 'PL'
       },
       (err, data) => {
@@ -97,7 +97,7 @@ class Server {
     })
     
     this.app.get('/api/songaudiofeatures/:id', (req, res) => {
-      this.SpotifyConnector.SpotifyApi.getAudioFeaturesForTrack(req.params.id,
+      this.spotifyApi.getAudioFeaturesForTrack(req.params.id,
         (err, data) => {
           if (err) {
             this.errorHandler(err)
@@ -115,7 +115,7 @@ class Server {
       res.sendFile(path.join(__dirname, '../src/index.html'))
     })
     
-    this.app.listen(this.Config.httpServer.port, (err) => {
+    this.app.listen(this.config.httpServer.port, (err) => {
       if (err) {
         console.log(err)
       } else {

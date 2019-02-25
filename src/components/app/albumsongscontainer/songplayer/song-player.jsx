@@ -11,6 +11,7 @@ class SongPlayer extends Component {
     this.playerRef = React.createRef()
   }
 
+  // deprecated approach
   componentWillReceiveProps() {
     this.props.albumStore.getClickedSong()
     this.playerRef.current.pause()
