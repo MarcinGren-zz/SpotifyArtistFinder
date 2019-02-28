@@ -37,4 +37,3 @@ PORT = yourport
 
 ## Known Issues
 - Possible for API to return the wrong data if the last request finishes earlier than others (should be solved by RxJS
-- Possible longer loading time from time to time (results from heroku entering sleep mode)
